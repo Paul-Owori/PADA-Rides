@@ -1,6 +1,6 @@
 # PADA - Rides
 
-PADA - Rides is an platform that connects transport service providers to potential clients. Unlike most other transport apps however, PADA - Rides is designed to cater to persons with disabilities as well.
+PADA - Rides is a platform that connects transport service providers to potential clients. Unlike most other transport apps however, PADA - Rides is designed to cater to persons with disabilities as well.
 
 ## Installation
 
