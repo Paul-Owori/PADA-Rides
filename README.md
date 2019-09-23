@@ -28,6 +28,12 @@ To run the app locally, use;
 $ npm run start
 ```
 
+To run the app locally as a dev (nodemon enabled), use;
+
+```bash
+$ npm run dev
+```
+
 ## Languages and frameworks
 
 Javascript, HTML and CSS were used, along with MongoDB, Express and NodeJS
