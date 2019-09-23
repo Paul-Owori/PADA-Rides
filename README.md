@@ -2,6 +2,8 @@
 
 PADA - Rides is a platform that connects transport service providers to potential clients. Unlike most other transport apps however, PADA - Rides is designed to cater to persons with disabilities as well.
 
+You can view a hosted version of PADA-Rides on heroku [here](https://pada-rides.herokuapp.com)
+
 ## Installation
 
 Clone the repository
