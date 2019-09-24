@@ -14,17 +14,112 @@
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
 
     <!-- Custom Stylesheets -->
+    <!-- Base CSS (Must-have) -->
+    <link rel="stylesheet" href="/stylesheets/base.css">
+    <!-- Navbar CSS (Must-have) -->
+    <link rel="stylesheet" href="/stylesheets/modules/navbar.css">
 
 
     <title>PADA-Rides</title>
 </head>
 
 <body>
-    <!-- Start page -->
+    <div class="all-content">
+        <!-- Nav -->
+        <nav>
+            <!-- Dropdown hamburger -->
+            <div class="nav-ham">
+                <i class="fas fa-bars"></i>
+
+            </div>
+
+
+            <div class="nav-header nav-hidden">
+                <div class="trip-logo">T</div>
+                <span class="trip-letters">rip</span>
+            </div>
+
+            <div class="navlink-container nav-hidden">
+                <a href="#" class="navlink">Item 1</a>
+            </div>
+
+        </nav>
+
+        <!-- Templates to use -->
+        <div class="mid-content">
+
+
+
+            <div class="trip-card trip-gray-background">
+                <h1 class="trip-red-color">
+                    This is an H1. this is a "trip-card trip-gray-background" div. those are two classes.
+                </h1>
+                <h2 class="trip-red-color">
+                    This is an H2
+                </h2>
+
+                <h3>Input field</h3>
+                <input type="text" placeholder="Input example">
+
+                <!--Bootstrap Buttons -->
+                <h3>Bootstrap outline buttons</h3>
+                <button type="button" class="btn btn-outline-primary">Primary</button>
+                <button type="button" class="btn btn-outline-secondary">Secondary</button>
+                <button type="button" class="btn btn-outline-success">Success</button>
+                <button type="button" class="btn btn-outline-danger">Danger</button>
+                <button type="button" class="btn btn-outline-warning">Warning</button>
+                <button type="button" class="btn btn-outline-info">Info</button>
+                <button type="button" class="btn btn-outline-light">Light</button>
+                <button type="button" class="btn btn-outline-dark">Dark</button>
+
+
+                <h3>Bootstrap normal buttons</h3>
+                <button type="button" class="btn btn-primary">Primary</button>
+                <button type="button" class="btn btn-secondary">Secondary</button>
+                <button type="button" class="btn btn-success">Success</button>
+                <button type="button" class="btn btn-danger">Danger</button>
+                <button type="button" class="btn btn-warning">Warning</button>
+                <button type="button" class="btn btn-info">Info</button>
+                <button type="button" class="btn btn-light">Light</button>
+                <button type="button" class="btn btn-dark">Dark</button>
+
+            </div>
+
+
+            <div class="trip-card trip-red-background">
+                <h1 class="trip-gray-color">
+                    This is an H1 with the "trip-gray-color" class. this is a "trip-card trip-gray-background" div.
+                    those
+                    are 2
+                    classes
+                </h1>
+            </div>
+
+
+
+        </div>
+
+        <div class="right-content"></div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
 
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <!-- Navbar controller -->
+    <script src="/scripts/module-scripts/nav-bar.js"></script>
 </body>
 
 </html>
