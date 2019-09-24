@@ -3,10 +3,10 @@
 	display: flex;
 }
 #carousel{
-	flex: 5;
+	width: 40%;
 }
 #details{
-	flex: 7;
+	width: 60%;
 	padding: 10%;
 }
 
@@ -17,10 +17,10 @@
 		flex-direction: column;
 	}
 	#details{
-		flex: 6;
+		height: 50%;
 		padding: 5%;
 	}
 	#carousel{
-		flex: 6;
+		height: 50%;
 	}
 }
