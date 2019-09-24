@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Fontawesome icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
+
+    <!-- Custom Stylesheets -->
+    <!-- Base CSS (Must-have) -->
+    <link rel="stylesheet" href="../stylesheets/base.css">
+    <!-- Navbar CSS (Must-have) -->
+    <link rel="stylesheet" href="../stylesheets/modules/navbar.css">
+    <!-- Commuter-theme css -->
+    <link rel="stylesheet" href="../stylesheets/themes/commuter-dashboard.css">
+
+
+    <title>PADA-Rides</title>
+</head>
+
+<body>
+    <div class="all-content">
+        <!-- Nav -->
+        <nav>
+            <!-- Dropdown hamburger -->
+            <div class="nav-ham">
+                <i class="fas fa-bars"></i>
+
+            </div>
+
+
+            <div class="nav-header nav-hidden">
+                <div class="trip-logo">T</div>
+                <span class="trip-letters">rip</span>
+            </div>
+
+            <div class="navlink-container nav-hidden">
+                <a href="#" class="navlink">Item 1</a>
+            </div>
+
+        </nav>
+
+        <!-- Middle content -->
+        <div class="mid-content trip-gray-background">
+            <div class="welcome-header">
+                <h2 class="trip-red-color">Welcome commuterName! </h2>
+            </div>
+            <div class="trip-flexbox">
+                <div class="trip-card map-wrapper">
+                    <!-- Map will appear here -->
+                    <div class="map-container"></div>
+
+
+                    <div class="under-map">
+                        <!--Location input / search  -->
+                        <div class="location-input">
+                            <input type="text" placeholder="Pickup Location" id="pickUp">
+                            <i class="fas fa-search-location search-icon"></i>
+
+                        </div>
+                        <!-- Fields for PWD's to fill -->
+                        <form class="pwd-fields">
+                            <h6 class="trip-red-color pwd-header">If you are a P.W.D, please check the appropriate
+                                fields.</h6>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="deafCheck">
+                                <label class="custom-control-label" for="deafCheck">I have a hearing
+                                    impairment</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="blindCheck">
+                                <label class="custom-control-label" for="blindCheck">I have a visual
+                                    impairment.</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="physicalCheck">
+                                <label class="custom-control-label" for="physicalCheck">I am physically handicapped.
+                                </label>
+                            </div>
+                        </form>
+                        <span class="add-trip-btn">
+                            Find a ride <i class="add-trip-plus fas fa-plus-circle"></i>
+                        </span>
+
+                    </div>
+
+
+
+
+                </div>
+                <div class="trip-card">
+                    Book in advance.
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Content at the end / right -->
+        <div class="right-content"></div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <!-- Navbar controller -->
+    <script src="../scripts/module-scripts/nav-bar.js"></script>
+
+</body>
+
+</html>
