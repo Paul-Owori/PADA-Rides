@@ -17,101 +17,59 @@
     <!-- Base CSS (Must-have) -->
     <link rel="stylesheet" href="/stylesheets/base.css">
     <!-- Navbar CSS (Must-have) -->
-    <link rel="stylesheet" href="/stylesheets/modules/navbar.css">
+    <link rel="stylesheet" href="/stylesheets/themes/landing-page.css">
 
 
-    <title>PADA-Rides</title>
+    <title>Trip-Homepage</title>
 </head>
 
 <body>
-    <div class="all-content">
-        <!-- Nav -->
-        <nav>
-            <!-- Dropdown hamburger -->
-            <div class="nav-ham">
-                <i class="fas fa-bars"></i>
-
+    <div id="container" class="trip-red-background">
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/assets/Trip_Comfortable.jpg" class="d-block w-100" alt="Comfortable">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Comfortable</h5>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/assets/Trip_Fast.jpeg" class="d-block w-100" alt="Fast">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Fast</h5>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/assets/Trip_Reliable.jpeg" class="d-block w-100" alt="Reliable">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Reliable</h5>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/assets/Trip_Safety.jpeg" class="d-block w-100" alt="Safe">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Safe</h5>
+                    </div>
+                </div>
             </div>
-
-
-            <div class="nav-header nav-hidden">
+        </div>        
+        <div id="details">
+            <div>
                 <div class="trip-logo">T</div>
                 <span class="trip-letters">rip</span>
             </div>
-
-            <div class="navlink-container nav-hidden">
-                <a href="#" class="navlink">Item 1</a>
+            <div>
+                <h2>Looking for a ride?</h2>
+                <p>Trip can get you wherever you need to go.</p>
+                <a href="/views/commute-login.html">
+                    <button id="commuters" class="btn btn-outline-success">I need a Ride</button>
+                </a>
+                <a href="/views/sp-login.html">
+                    <button id="sProviders" class="btn btn-outline-warning">I can be of Service</button>
+                </a>
             </div>
-
-        </nav>
-
-        <!-- Templates to use -->
-        <div class="mid-content">
-
-
-
-            <div class="trip-card trip-gray-background">
-                <h1 class="trip-red-color">
-                    This is an H1. this is a "trip-card trip-gray-background" div. those are two classes.
-                </h1>
-                <h2 class="trip-red-color">
-                    This is an H2
-                </h2>
-
-                <h3>Input field</h3>
-                <input type="text" placeholder="Input example">
-
-                <!--Bootstrap Buttons -->
-                <h3>Bootstrap outline buttons</h3>
-                <button type="button" class="btn btn-outline-primary">Primary</button>
-                <button type="button" class="btn btn-outline-secondary">Secondary</button>
-                <button type="button" class="btn btn-outline-success">Success</button>
-                <button type="button" class="btn btn-outline-danger">Danger</button>
-                <button type="button" class="btn btn-outline-warning">Warning</button>
-                <button type="button" class="btn btn-outline-info">Info</button>
-                <button type="button" class="btn btn-outline-light">Light</button>
-                <button type="button" class="btn btn-outline-dark">Dark</button>
-
-
-                <h3>Bootstrap normal buttons</h3>
-                <button type="button" class="btn btn-primary">Primary</button>
-                <button type="button" class="btn btn-secondary">Secondary</button>
-                <button type="button" class="btn btn-success">Success</button>
-                <button type="button" class="btn btn-danger">Danger</button>
-                <button type="button" class="btn btn-warning">Warning</button>
-                <button type="button" class="btn btn-info">Info</button>
-                <button type="button" class="btn btn-light">Light</button>
-                <button type="button" class="btn btn-dark">Dark</button>
-
-            </div>
-
-
-            <div class="trip-card trip-red-background">
-                <h1 class="trip-gray-color">
-                    This is an H1 with the "trip-gray-color" class. this is a "trip-card trip-gray-background" div.
-                    those
-                    are 2
-                    classes
-                </h1>
-            </div>
-
-
-
         </div>
-
-        <div class="right-content"></div>
-
-
     </div>
-
-
-
-
-
-
-
-
-
 
 
     <!-- JQuery -->

@@ -1,0 +1,26 @@
+/*For web layout*/
+#container{
+	display: flex;
+}
+#carousel{
+	flex: 5;
+}
+#details{
+	flex: 7;
+	padding: 10%;
+}
+
+/*For mobile layout*/
+@media screen and (max-width: 960px){
+	#container{
+		display: flex;
+		flex-direction: column;
+	}
+	#details{
+		flex: 6;
+		padding: 5%;
+	}
+	#carousel{
+		flex: 6;
+	}
+}
