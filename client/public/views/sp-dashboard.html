@@ -50,53 +50,112 @@
         <!-- Middle content -->
         <div class="mid-content trip-gray-background">
 
-            <!-- Add a new ride now -->
+            <!-- View Available rides -->
             <div class="welcome-header">
-                <h2 class="trip-red-color">Welcome commuterName! </h2>
+                <h2 class="trip-red-color">Welcome spName! </h2>
             </div>
             <div class="trip-flexbox">
 
                 <div class="card-container">
                     <!-- Card header -->
-                    <h4 class="trip-red-color card-header">Find a ride now.</h4>
+                    <h4 class="trip-red-color card-header">Available clients.</h4>
 
-                    <div class="trip-card map-wrapper">
-                        <!-- Map will appear here -->
-                        <div class="map-container"></div>
+                    <div class="trip-card ">
+                        <!-- Client requests will appear dynamically here -->
 
+                        <!-- Client req-sample -->
+                        <div class="client-req-wrapper">
+                            <div class="client-req">
+                                <div class="client-img">
 
-                        <div class="under-map">
-                            <!--Location input / search  -->
-                            <div class="location-input">
-                                <input type="text" class="pick-up" placeholder="Pickup Location" id="pickUp">
-                                <span class="search-icon"><i class="fas fa-search-location "></i> </span>
+                                    <img class="commuter-profile"
+                                        src="https://images.pexels.com/photos/2918519/pexels-photo-2918519.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                                        alt="">
+                                </div>
+                                <div class="client-details trip-red-color">
+                                    <div class="detail-wrapper"><span class="detail-label">Name:</span><span
+                                            class="detail">John
+                                        </span></div>
+                                    <div class="detail-wrapper"><span class="detail-label">Pickup:</span><span
+                                            class="detail">Tuskys Ntinda</span></div>
+                                    <div class="detail-wrapper"><span class="detail-label">Dropoff:</span><span
+                                            class="detail">Soliz House
+                                        </span></div>
+                                    <div class="detail-wrapper"><span class="detail-label">Price est:</span><span
+                                            class="detail">10000
+                                            UGX</span></div>
+
+                                </div>
 
                             </div>
-                            <!-- Fields for PWD's to fill -->
-                            <form class="pwd-fields">
-                                <h6 class="trip-red-color pwd-header">If you are a P.W.D, please check the appropriate
-                                    fields.</h6>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="deafCheck">
-                                    <label class="custom-control-label" for="deafCheck">I have a hearing
-                                        impairment</label>
-                                </div>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="blindCheck">
-                                    <label class="custom-control-label" for="blindCheck">I have a visual
-                                        impairment.</label>
-                                </div>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="physicalCheck">
-                                    <label class="custom-control-label" for="physicalCheck">I am physically handicapped.
-                                    </label>
-                                </div>
-                            </form>
                             <span class="add-trip-btn">
-                                Find a ride now <i class="add-trip-plus fas fa-plus-circle"></i>
+                                Accept Request <i class="add-trip-plus fas fa-plus-circle"></i>
                             </span>
-
                         </div>
+                        <div class="client-req-wrapper">
+                            <div class="client-req">
+                                <div class="client-img">
+
+                                    <img class="commuter-profile"
+                                        src="https://images.pexels.com/photos/236452/pexels-photo-236452.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                                        alt="">
+                                </div>
+                                <div class="client-details trip-red-color">
+                                    <div class="detail-wrapper"><span class="detail-label">Name:</span><span
+                                            class="detail">John
+                                        </span></div>
+                                    <div class="detail-wrapper"><span class="detail-label">Pickup:</span><span
+                                            class="detail">Tuskys Ntinda</span></div>
+                                    <div class="detail-wrapper"><span class="detail-label">Dropoff:</span><span
+                                            class="detail">Soliz House
+                                        </span></div>
+                                    <div class="detail-wrapper"><span class="detail-label">Price est:</span><span
+                                            class="detail">10000
+                                            UGX</span></div>
+
+                                </div>
+
+                            </div>
+                            <span class="add-trip-btn">
+                                Accept Request <i class="add-trip-plus fas fa-plus-circle"></i>
+                            </span>
+                        </div>
+                        <div class="client-req-wrapper">
+                            <div class="client-req">
+                                <div class="client-img">
+
+                                    <img class="commuter-profile"
+                                        src="https://images.pexels.com/photos/936074/pexels-photo-936074.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                                        alt="">
+                                </div>
+                                <div class="client-details trip-red-color">
+                                    <div class="detail-wrapper"><span class="detail-label">Name:</span><span
+                                            class="detail">John
+                                        </span></div>
+                                    <div class="detail-wrapper"><span class="detail-label">Pickup:</span><span
+                                            class="detail">Tuskys Ntinda</span></div>
+                                    <div class="detail-wrapper"><span class="detail-label">Dropoff:</span><span
+                                            class="detail">Soliz House
+                                        </span></div>
+                                    <div class="detail-wrapper"><span class="detail-label">Price est:</span><span
+                                            class="detail">10000
+                                            UGX</span></div>
+
+                                </div>
+
+                            </div>
+                            <span class="add-trip-btn">
+                                Accept Request <i class="add-trip-plus fas fa-plus-circle"></i>
+                            </span>
+                        </div>
+
+
+
+
+
+
+
+
 
                     </div>
                 </div>
@@ -105,76 +164,50 @@
                 <!-- Book a ride in advance -->
 
                 <div class="card-container">
-                    <!-- Card header -->
-                    <h4 class="trip-red-color card-header">Book a ride in advance.</h4>
+                    <!-- Map Card header -->
+                    <h4 class="trip-red-color card-header">Directions to your client.</h4>
 
                     <div class="trip-card map-wrapper">
                         <!-- Map will appear here -->
                         <div class="map-container"></div>
 
+                    </div>
 
-                        <div class="under-map">
-                            <!--Location input / search  -->
-                            <div class="location-input">
-                                <input type="text" class="pick-up" placeholder="Pickup Location" id="pickUpAdvance">
-                                <span class="search-icon"><i class="fas fa-search-location "></i> </span>
+                    <!-- Bookings Card header -->
+                    <h4 class="trip-red-color card-header">Your advance bookings.</h4>
+
+                    <div class="trip-card ">
+
+                        <div class="client-req-wrapper">
+                            <div class="client-req">
+                                <div class="client-img">
+
+                                    <img class="commuter-profile"
+                                        src="https://images.pexels.com/photos/936074/pexels-photo-936074.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                                        alt="">
+                                </div>
+                                <div class="client-details trip-red-color">
+                                    <div class="detail-wrapper"><span class="detail-label">Name:</span><span
+                                            class="detail">John
+                                        </span></div>
+                                    <div class="detail-wrapper"><span class="detail-label">Pickup:</span><span
+                                            class="detail">Tuskys Ntinda</span></div>
+                                    <div class="detail-wrapper"><span class="detail-label">Dropoff:</span><span
+                                            class="detail">Soliz House
+                                        </span></div>
+                                    <div class="detail-wrapper"><span class="detail-label">Price est:</span><span
+                                            class="detail">10000
+                                            UGX</span></div>
+
+                                </div>
 
                             </div>
-
-                            <!-- Fields for Date, Time and PWD status -->
-                            <form class="pwd-fields">
-                                <h6 class="trip-red-color pwd-header">Choose a date and time.</h6>
-
-                                <div class="date-time-container">
-
-                                    <h6 class="date-label">
-                                        Date:
-                                    </h6>
-
-                                    <div class="date-wrapper">
-                                        <input class="date" id="dateDay" type="number" placeholder="DD"> <input
-                                            class="date" type="number" placeholder="MM" id="dateMonth"> <span
-                                            class="date bold-font">2019</span>
-                                    </div>
-                                </div>
-
-                                <div class="date-time-container">
-
-                                    <h6 class="date-label">
-                                        Time:
-                                    </h6>
-
-                                    <div class="date-wrapper">
-                                        <input class="date" id="dateHrs" type="number" placeholder="Hrs"> <input
-                                            class="date" type="number" placeholder="Mins" id="dateMins">
-                                    </div>
-
-                                </div>
-
-
-                                <h6 class="trip-red-color pwd-header">If you are a P.W.D, please check the appropriate
-                                    fields.</h6>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="deafCheck">
-                                    <label class="custom-control-label" for="deafCheck">I have a hearing
-                                        impairment</label>
-                                </div>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="blindCheck">
-                                    <label class="custom-control-label" for="blindCheck">I have a visual
-                                        impairment.</label>
-                                </div>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="physicalCheck">
-                                    <label class="custom-control-label" for="physicalCheck">I am physically handicapped.
-                                    </label>
-                                </div>
-                            </form>
                             <span class="add-trip-btn">
-                                Find a ride. <i class="add-trip-plus fas fa-plus-circle"></i>
+                                Cancel Request <i class="fas fa-times-circle"></i>
                             </span>
-
                         </div>
+
+
 
                     </div>
                 </div>
@@ -186,13 +219,29 @@
         <!-- Content at the end / right -->
         <div class="right-content">
 
+            <!-- Status -->
+
+            <div class="trip-card text-interface ongoing-trip">
+                <h6 class="trip-red-color">Your Availability</h6>
+
+                <div class="trip-red-background trip-details">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                        <label class="custom-control-label" for="customSwitch1"></label>
+                    </div>
+
+                </div>
+
+
+            </div>
+
             <!-- Ongoing trip card -->
             <div class="trip-card ongoing-trip">
                 <h6 class="trip-red-color">Ongoing trip</h6>
                 <!-- Driver profile image -->
-                <div id="profileContainer">
+                <div class="profile-container">
 
-                    <img id="spProfile"
+                    <img class="commuter-profile"
                         src="https://images.pexels.com/photos/2918519/pexels-photo-2918519.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                         alt="">
                 </div>
@@ -200,11 +249,9 @@
                 <div class="trip-red-background trip-details">
                     <div class="detail-wrapper"><span class="detail-label">Name:</span><span
                             class="detail">George</span></div>
-                    <div class="detail-wrapper"><span class="detail-label">Vehicle-type:</span><span
-                            class="detail">Toyota Hiace</span>
-                    </div>
-                    <div class="detail-wrapper"><span class="detail-label">Number-Plate:</span><span
-                            class="detail">George</span></div>
+
+
+
                     <div class="detail-wrapper"><span class="detail-label">Price est:</span><span class="detail">10000
                             UGX</span></div>
                     <div class="detail-wrapper"><span class="detail-label">Pickup:</span><span class="detail">Soliz

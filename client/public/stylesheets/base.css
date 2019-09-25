@@ -16,6 +16,8 @@
 
 .right-content {
     flex: 2;
+    overflow-y: auto;
+    max-height: 100vh;
 }
 
 .trip-card {

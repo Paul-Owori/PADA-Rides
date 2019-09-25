@@ -15,6 +15,45 @@
 
 }
 
+.client-img {
+
+    overflow: hidden;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    text-align: center;
+    align-items: center;
+    box-shadow: 0.6px 0.4px 1px 0.4px #686868;
+    margin: 0.8rem auto 0.8rem auto;
+
+}
+
+.client-img img {
+    height: 100%;
+    width: auto;
+    /* max-width: 100%; */
+}
+
+.client-req {
+    display: flex;
+
+}
+
+.client-req-wrapper {
+    border-bottom: 2px solid #aaa9a9;
+    padding-bottom: 0.5rem;
+    text-align: center;
+}
+
+.client-req .client-img {
+    flex: 4;
+}
+
+.client-details {
+    padding-left: 0.5rem;
+    flex: 8;
+}
+
 .map-container {
     height: 12rem;
     top: 0rem;
@@ -192,7 +231,7 @@ form {
 
 }
 
-#profileContainer {
+.profile-container {
 
     overflow: hidden;
     width: 130px;
@@ -205,7 +244,7 @@ form {
 
 }
 
-#profileContainer img {
+.profile-container img {
     height: 100%;
     width: auto
 }
