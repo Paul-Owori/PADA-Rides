@@ -16,13 +16,19 @@
 }
 #logIn{
   flex: 6;
-  padding: 15% auto;
-}
-#loginCard{
-  padding: 15% auto;
 }
 #signUp{
   flex: 6;
+}
+
+/* For larger displays*/
+@media (min-width: 960px){
+  #logIn{
+    padding: 15% 0;
+    }
+    #loginCard{
+      padding: 15% 0;
+    }
 }
 
 /* Mobile Layout */
@@ -39,6 +45,7 @@
 }
 }
 
+/* Special features*/
 label{
   font-weight: bold;
 }
