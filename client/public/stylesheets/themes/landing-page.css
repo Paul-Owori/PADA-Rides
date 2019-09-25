@@ -3,24 +3,33 @@
 	display: flex;
 }
 #carousel{
-	width: 40%;
+	flex: 4;
 }
 #details{
-	width: 60%;
-	padding: 10%;
+	flex: 8;
+}
+#logo{
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+
+/*For larger displays*/
+@media (min-width: 960px){
+	#details{
+	padding: 20%;		
+	}
 }
 
 /*For mobile layout*/
-@media screen and (max-width: 960px){
+@media (max-width: 960px){
 	#container{
 		display: flex;
-		flex-direction: column;
+		flex-direction: column-reverse;
 	}
 	#details{
-		height: 50%;
-		padding: 5%;
+		flex: 6;
 	}
-	#carousel{
-		height: 50%;
+	#carousel{flex: 6;
 	}
 }
