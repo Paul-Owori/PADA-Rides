@@ -19,6 +19,8 @@
     <!-- Navbar CSS (Must-have) -->
     <link rel="stylesheet" href="../stylesheets/modules/navbar.css">
 
+    <!-- sp-profile.css -->
+    <link rel="stylesheet" href="../stylesheets/themes/sp-profile.css">
 
     <title>PADA-Rides</title>
 </head>
@@ -46,23 +48,30 @@
         </nav>
 
         <!-- Middle content -->
-        <div class="mid-content"></div>
+        <div class="mid-content">
+
+            <div class="trip-card">
+
+                <h1>WelcomeToPadaInclusiveTrip</h1>
+                <p>This is an inclusive means of transport for all</p>
+                <img src="../assets/pexels-photo-1205033 (1).jpeg">
+                <form>
+                    <label>Email</label><br>
+                    <input type="email" required><br>
+                    <label>password</label><br>
+                    <input type="password" required><br>
+                    <br><button id="login"><a href="account.html">login</a></button><br>
+                    <ul>
+                    <li><a href="forgot password.html"><strong>forgot password</strong></a></li>
+            </ul>
+                </form>
+            </div>
+        </div>
 
         <!-- Content at the end / right -->
         <div class="right-content"></div>
-
-
+    </div>    
     </div>
-
-
-
-
-
-
-
-
-
-
 
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -72,5 +81,4 @@
     <script src="../scripts/module-scripts/nav-bar.js"></script>
 
 </body>
-
 </html>

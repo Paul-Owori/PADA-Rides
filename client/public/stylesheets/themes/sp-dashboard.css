@@ -1,0 +1,392 @@
+.mid-content {
+    text-align: left;
+
+}
+
+
+.welcome-header {
+    border-bottom: 2px solid #dc3545
+}
+
+.trip-flexbox {
+    display: flex;
+    justify-content: space-between;
+    margin: 0rem;
+
+}
+
+.client-img {
+
+    overflow: hidden;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    text-align: center;
+    align-items: center;
+    box-shadow: 0.6px 0.4px 1px 0.4px #686868;
+    margin: 0.8rem auto 0.8rem auto;
+
+}
+
+.client-img img {
+    height: 100%;
+    width: auto;
+    /* max-width: 100%; */
+}
+
+.client-req {
+    display: flex;
+
+}
+
+.client-req-wrapper {
+    border-bottom: 2px solid #aaa9a9;
+    padding-bottom: 0.5rem;
+    text-align: center;
+}
+
+.client-req .client-img {
+    flex: 4;
+}
+
+.client-details {
+    padding-left: 0.5rem;
+    flex: 8;
+}
+
+.map-container {
+    height: 12rem;
+    top: 0rem;
+    border-bottom: 1px solid #dc3545;
+    background: url("../../assets/map-sample.png");
+    margin-bottom: 0.8rem;
+}
+
+.map-wrapper {
+    padding: 0rem;
+    min-height: 12rem;
+    min-width: 12rem;
+}
+
+.card-container {
+    flex: 6;
+}
+
+.card-header {
+    padding-left: 1.5rem;
+    background: none;
+    border: none;
+    margin-top: 1.2rem;
+    padding-bottom: 0rem;
+}
+
+.trip-flexbox .card-container .trip-card {
+    background: #fff;
+    padding-bottom: 1.2rem;
+}
+
+.under-map {
+    margin: 0.8rem;
+}
+
+.location-input {
+    display: flex;
+    border: solid 2px gray;
+    border-radius: 5px;
+    padding: 0.3rem;
+
+}
+
+.location-input:hover,
+.location-input:focus,
+.location-input:active {
+    border: solid 2px #dc3545;
+}
+
+.pick-up {
+    flex: 8;
+    border: none;
+    max-width: 80%;
+    margin: 0rem;
+    padding: 0rem;
+
+}
+
+.pick-up:hover,
+.pick-up:focus,
+.pick-up:active {
+    outline: none;
+}
+
+.search-icon {
+    flex: 4;
+    text-align: right;
+    color: gray;
+    font-size: 1.3em;
+    padding: 0rem;
+}
+
+
+.location-input:hover .search-icon,
+.location-input:focus .search-icon,
+.location-input:active .search-icon {
+    color: #dc3545;
+}
+
+/* PWD fields and content in map flexbox, but under the map */
+.pwd-header {
+    margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.pwd-fields {
+    font-size: 0.7em;
+}
+
+label {
+    font-size: 1.2em;
+}
+
+form {
+    margin-bottom: 1.5rem;
+}
+
+
+
+
+
+.add-trip-btn {
+
+    background: #dc3545;
+    color: #fff;
+    font-weight: bold;
+    padding: 0.3rem;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.add-trip-btn:hover {
+    background: #fff;
+    color: #dc3545;
+    border: 1px solid #dc3545;
+}
+
+.add-trip-plus {
+    font-size: 1.2em;
+}
+
+.date-time-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 0.5rem;
+    align-items: center;
+}
+
+.date-label {
+    flex: 1.2;
+    text-align: left;
+    max-width: 150px;
+}
+
+.date-wrapper {
+    flex: 8;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.date {
+    max-width: 20%;
+    flex: 4;
+    width: 100%;
+    margin-right: 0.5rem;
+}
+
+/* Classes for hiding and revealing */
+
+.hide {
+    display: none;
+}
+
+.reveal {
+    display: initial;
+}
+
+.bold-font {
+    font-weight: bold;
+}
+
+
+/* Right side view */
+.ongoing-trip,
+.text-interface {
+    padding-right: 0rem;
+    padding-left: 0rem;
+    padding-bottom: 0rem;
+    border-bottom: none;
+    text-align: center;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+.profile-container {
+
+    overflow: hidden;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    text-align: center;
+    align-items: center;
+    box-shadow: 0.6px 0.4px 1px 0.4px #686868;
+    margin: 0.8rem auto 0.8rem auto;
+
+}
+
+.profile-container img {
+    height: 100%;
+    width: auto
+}
+
+.trip-details,
+.text-box {
+    margin: 0.5rem 0rem 0rem 0rem;
+    height: 100%;
+    padding: 0.3rem;
+}
+
+.detail-wrapper {
+    display: flex;
+    border-bottom: solid 1px #fff;
+    padding: 0.3rem;
+    text-align: left;
+}
+
+.detail-label {
+    flex: 5;
+    font-weight: bold;
+}
+
+.detail {
+    padding-left: 0.2rem;
+    flex: 7;
+}
+
+
+/* Text interface */
+
+.msg-display {
+    border-radius: 5px;
+    background: #ffffff;
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+.user-msg,
+.sp-msg {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+.user-msg {
+    justify-content: flex-start;
+}
+
+.sp-msg {
+    justify-content: flex-end;
+}
+
+.user-msg-box,
+.sp-msg-box {
+    flex: 8;
+    display: block;
+    max-width: 60%;
+    border-radius: 8px;
+    padding: 0.5rem;
+}
+
+.user-msg-box {
+    background: #fff;
+    color: #dc3545;
+    border: solid 2px #dc3545;
+}
+
+.sp-msg-box {
+    background: #dc3545;
+    color: #fff
+}
+
+.input-msg {
+    display: flex;
+    border: solid 2px gray;
+    border-radius: 4px;
+    padding: 0rem;
+    background: #fff;
+    margin: 0.5rem;
+
+}
+
+#inputMsg {
+    flex: 8;
+    border: none;
+}
+
+input:active,
+input:focus {
+    outline: none;
+}
+
+input {
+    max-width: 80%;
+    margin: 0rem;
+}
+
+.send-btn {
+    flex: 4;
+    text-align: left;
+    color: #428bca;
+    align-items: center;
+    padding: 0.3rem;
+    cursor: pointer;
+}
+
+.send-btn:hover {
+    color: #5bc0de;
+
+}
+
+.send-btn:focus,
+.send-btn:active {
+    color: #428bca;
+}
+
+.dropdown-btns {
+    display: block;
+    color: #fff;
+    font-size: 1.3em;
+    text-align: center;
+    max-width: 20%;
+    margin: 0rem auto 0rem auto;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.dropdown-btns:hover {
+    color: #dc3545;
+    background: #fff;
+
+}
+
+.dropdown-btns:active,
+.dropdown-btns:focus {
+    background: rgb(230, 229, 229);
+
+}
+
+
+@media screen and (max-width: 960px) {
+    .trip-flexbox {
+        flex-direction: column;
+    }
+}

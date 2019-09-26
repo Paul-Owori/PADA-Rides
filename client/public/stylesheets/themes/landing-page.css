@@ -1,0 +1,35 @@
+/*For web layout*/
+#container{
+	display: flex;
+}
+#carousel{
+	flex: 4;
+}
+#details{
+	flex: 8;
+}
+#logo{
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+
+/*For larger displays*/
+@media (min-width: 960px){
+	#details{
+	padding: 20%;		
+	}
+}
+
+/*For mobile layout*/
+@media (max-width: 960px){
+	#container{
+		display: flex;
+		flex-direction: column-reverse;
+	}
+	#details{
+		flex: 6;
+	}
+	#carousel{flex: 6;
+	}
+}
