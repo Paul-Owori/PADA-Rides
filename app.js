@@ -10,6 +10,10 @@ const commuterRoutes = require('./server/routes/commuters')
 const spRoutes = require('./server/routes/sps')
 const tripRoutes = require('./server/routes/trips')
 
+// Database connection
+
+//const db = require('./server/database/db')
+
 //Designating folder with all the app contents
 app.use(express.static('./client/public'));
 
@@ -30,6 +34,31 @@ app.get('/*', (req, res) => {
 app.use('/commuters', commuterRoutes);
 app.use('/sps', spRoutes);
 app.use('/trips', tripRoutes);
+
+
+// db.connect()
+//     .then(() => {
+
+//         app.listen(port, () => {
+//             console.log(`PADA - Rides is running on port ${port}`);
+//         });
+//     })
+
+
+
+//Call mongoose
+var mongoose = require('mongoose');
+
+mongoose.connect('mongodb+srv://pada-rides:trip256@cluster0-l6z9b.mongodb.net/test?retryWrites=true&w=majority', {
+    useNewUrlParser: true
+});
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function () {
+    // we're connected!
+    console.log("connected")
+});
 
 app.listen(port, () => {
     console.log(`PADA - Rides is running on port ${port}`);
