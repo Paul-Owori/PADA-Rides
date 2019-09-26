@@ -55,6 +55,60 @@ router.get("/:tripID", (req, res, next) => {
 });
 
 
+//Handling GET requests for all the trips associated with a particular commuter
+router.get("/commuter/:commuterID", (req, res, next) => {
+    const commuterID = req.params.commuterID;
+
+    Trip.find({
+            commuterID: commuterID
+        })
+        .exec()
+        .then(trips => {
+            if (trips.length > 0) {
+                res.status(200).json(trips);
+            } else {
+                res.status(404).json({
+                    message: `No entries found for trips by commuter with id ${commuterID} .`
+                });
+            }
+        })
+        .catch(err => {
+            console.log(`Error getting trips for commuter with id ${commuterID}`, err);
+            res.status(500).json({
+                message: `Error getting trips for commuter with id ${commuterID}`,
+                error: err
+            });
+        });
+});
+
+
+//Handling GET requests for all the trips associated with a particular sp
+router.get("/sp/:spID", (req, res, next) => {
+    const spID = req.params.spID;
+
+    Trip.find({
+            spID: spID
+        })
+        .exec()
+        .then(trips => {
+            if (trips.length > 0) {
+                res.status(200).json(trips);
+            } else {
+                res.status(404).json({
+                    message: `No entries found for trips by sp with id ${spID} .`
+                });
+            }
+        })
+        .catch(err => {
+            console.log(`Error getting trips for sp with id ${spID}`, err);
+            res.status(500).json({
+                message: `Error getting trips for sp with id ${spID}`,
+                error: err
+            });
+        });
+});
+
+
 // Handling creating a trip object and storing it in the database
 router.post("/", (req, res, next) => {
     console.log("TRIP RECEIVED BY BACKEND==>>", req.body);
