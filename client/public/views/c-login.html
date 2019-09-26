@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Fontawesome icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
+
+    <!-- Custom Stylesheets -->
+    <!-- Base CSS (Must-have) -->
+    <link rel="stylesheet" href="../stylesheets/base.css">
+    
+    <link rel="stylesheet" href="../stylesheets/themes/c-login.css">
+
+
+    <title>Login</title>
+</head>
+
+<body>
+    <!--Commuter Login page -->
+    <div id="container">
+
+        <!-- Logo display -->
+        <div id="sideBar" class="trip-red-background">
+            <div id="logo">
+                <div class="trip-logo">T</div>
+                <span class="trip-letters">rip</span>
+            </div>
+        </div>
+        <div id="content">
+
+            <!-- Login Section -->
+            <div id="logIn">
+                <div id="loginCard" class="trip-card trip-gray-background">
+                    <h2>Login</h2>
+                    <p>Already have an account?<br>Signin here:</p>
+
+                    <!-- Login form -->
+                    <form id="access">
+                        <label for="email">Email Address</label><br>
+                        <input type="text" name="email" id="email" placeholder="Your Email Address..."><br>
+                        <label for="password">Password</label><br>
+                        <input type="password" name="password" id="password" placeholder="Your Password..."><br>
+
+                        <!-- Form control buttons -->
+                        <button id="signin" type="submit" class="btn-success">Signin</button>
+                        <button id="clear" type="reset">Cancel</button><br>
+                        <a href="#">Forgot Password?</a>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Signup Section -->
+            <div id="signUp">
+                <div id="signinCard" class="trip-card trip-gray-background">
+                    <h2>Sign Up</h2>
+                    <p>Register here:</p>
+
+                    <!-- Registration form -->
+                    <form id="join">
+                        <div class="form-group-row">
+                            <label for="First name">First name:</label><br>
+                            <input type="text" name="First name" id="First name" placeholder="Your First Name...">
+                        </div>
+                        <div class="form-group-row">
+                            <label for="Last name">Last name:</label><br>
+                            <input type="text"name="Last name" id="Last name" placeholder="Your Last Name...">
+                        </div>
+                        <div class="form-group-row">
+                            <label for="Email address">Email Address:</label><br>
+                            <input type="text" name="Email address" id="Email address" placeholder="Your Email Address...">
+                        </div>
+                        <div class="form-group-row">
+                            <label for="Username">Username:</label><br>
+                            <input type="text" name="Username" id="Username" placeholder="Your preferred username...">
+                        </div>
+                        <div class="form-group-row">
+                            <label for="Status">Status:</label><br>
+                            <select id="Status" name="Status">
+                                <option>Normal</option>
+                                <option>Blind</option>
+                                <option>Deaf</option>
+                                <option>Physically Handicapped</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group-row">
+                            <label for="New password">New Password:</label><br>
+                            <input type="password" name="New password" id="New password" placeholder="Input password">
+                        </div>
+                        <div class="form-group-row">
+                            <label for="Confirm password">Confirm Password:</label><br>
+                            <input type="password" name="Confirm password" id="Confirm password" placeholder="Confirm password">
+                        </div>
+
+                        <!-- Form control buttons -->
+                        <button id="create" type="submit" class="btn-primary">Create Account</button><br>
+                        <button id="cancel" type="reset" class="btn-danger">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>               
+    </div>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
