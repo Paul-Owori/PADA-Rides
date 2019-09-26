@@ -29,7 +29,7 @@ router.get("/", (req, res, next) => {
 });
 
 
-// Handling GET requests for a single commuter by ID
+// Handling GET requests for a single sp by ID
 router.get("/:spID", (req, res, next) => {
     const spID = req.params.spID;
 
@@ -55,11 +55,11 @@ router.get("/:spID", (req, res, next) => {
 });
 
 
-// Handling creating a commuter object and storing it in the database
+// Handling creating a sp object and storing it in the database
 router.post("/", (req, res, next) => {
     console.log("SP RECEIVED BY BACKEND==>>", req.body);
 
-    //This creates a new commuter object in the database using the commuter model
+    //This creates a new sp object in the database using the sp model
     const sp = new Sp({
         _id: new mongoose.Types.ObjectId(),
         //   item_name: req.body.name,
@@ -69,7 +69,7 @@ router.post("/", (req, res, next) => {
         //   user_id: req.body.user_id,
         //   date: req.body.date
     });
-    //This saves the commuter in the database
+    //This saves the sp in the database
     sp
         .save()
         .then(result => {
@@ -89,7 +89,7 @@ router.post("/", (req, res, next) => {
 });
 
 
-//Handling updating one commuter
+//Handling updating one sp
 router.patch("/:spID", (req, res, next) => {
     const spID = req.params.spID;
 
@@ -119,26 +119,26 @@ router.patch("/:spID", (req, res, next) => {
 });
 
 
-//Handling deleting a single commuter
+//Handling deleting a single sp
 router.delete("/:spID", (req, res, next) => {
     const spID = req.params.spID;
 
-    Commuter.deleteOne({
+    Sp.deleteOne({
             _id: spID
         })
         .exec()
         .then(result => {
 
-            console.log(`Commuter with ID ${spID} successfuly deleted`)
+            console.log(`Sp with ID ${spID} successfuly deleted`)
             res.status(200).json({
-                message: `Commuter with ID ${spID} successfuly deleted`,
+                message: `Sp with ID ${spID} successfuly deleted`,
                 result
             });
         })
         .catch(err => {
-            console.log(`Error deleting commuter with ID ${spID}`)
+            console.log(`Error deleting sp with ID ${spID}`)
             res.status(500).json({
-                message: `Error deleting commuter with ID ${spID}`,
+                message: `Error deleting sp with ID ${spID}`,
                 error: err
             });
         });
