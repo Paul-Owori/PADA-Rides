@@ -31,6 +31,17 @@
 
 #signUp {
   flex: 6;
+  display: none;
+}
+
+.open-signup,
+.open-login {
+  cursor: pointer;
+}
+
+.open-signup:hover,
+.open-login:hover {
+  color: #df182c
 }
 
 .trip-card {
@@ -63,7 +74,6 @@ button {
   display: flex;
   align-items: center;
   padding: none;
-  border: solid 2px red;
   display: block;
   width: 100%;
   margin: none;
@@ -74,7 +84,6 @@ button {
   flex: 6;
   padding: none;
   text-align: left;
-  border: solid 2px red;
 }
 
 .no-padding {
@@ -90,13 +99,17 @@ select {
 .pwd-status-wrapper {
   flex: 12;
   display: none;
+
 }
 
-#pwdTrue:checked~.pwd-status-wrapper {
-  margin-top: 1.5rem;
-  padding-top: 2rem;
+.pwd-check-wrapper {
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 
-  display: initial;
+.pwd-check-wrapper div {
+  flex: 6;
 }
 
 /* For larger displays

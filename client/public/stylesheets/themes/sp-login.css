@@ -37,11 +37,72 @@
 
 }
 
+#signUp {
+  display: none;
+}
+
+.open-signup,
+.open-login {
+  cursor: pointer;
+}
+
+.open-signup:hover,
+.open-login:hover {
+  color: #df182c
+}
+
 .trip-card {
   max-width: 400px;
   margin-left: auto;
   margin-right: auto;
+  text-align: left;
+  padding: 1rem 2.5rem 1rem 2.5rem;
+}
+
+select {
+  padding: 0.5rem;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.select-container {
+  display: flex;
+  align-items: center;
+  padding: none;
+  display: block;
+  width: 100%;
+  margin: none;
+}
+
+.select-container label,
+.select-container select {
+  flex: 6;
+  padding: none;
+  text-align: left;
+}
+
+.card-header {
   text-align: center;
+  background: none;
+}
+
+.button-container {
+  display: flex;
+
+}
+
+.button-container button {
+  flex: 6
+}
+
+.trained-check-wrapper {
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.trained-check-wrapper div {
+  flex: 6;
 }
 
 /* For larger displays*/
@@ -57,6 +118,12 @@
 
 /* Mobile Layout */
 @media (max-width: 960px) {
+
+  .select-container,
+  .button-container {
+    flex-direction: column;
+  }
+
   #content {
     display: flex;
     flex-direction: column;
@@ -78,7 +145,7 @@ label {
 
 input,
 select {
-  max-width: 100%;
+  width: 100%;
   margin: 0.2rem 0rem 1rem 0rem;
 }
 

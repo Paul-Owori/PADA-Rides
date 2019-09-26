@@ -20,17 +20,19 @@ $(document).ready(() => {
     $('#createCommuter').click((e) => {
         e.preventDefault();
 
-        let firstName = $('#').val();
-        let lastName = $('#').val();
-        let password = $('#').val();
-        let email = $('#').val();
-        let phoneNumber = $('#').val();
-        let pwdStatus = $('#').val();
-        let phsicalImpairment = $('#').val();
-        let visualImpairment = $('#').val();
-        let hearingImpairment = $('#').val();
+        let firstName = $('#firstName').val();
+        let lastName = $('#lastName').val();
+        let password = $('#password1').val();
+        let email = $('#email').val();
+        let phoneNumber = $('#phoneNumber').val();
 
+        let pwdStatus = $("input[name='pwdCheck']:checked").val();
 
+        let phsicalImpairment = $('#physical').find(":selected").text();
+        let visualImpairment = $('#visual').find(":selected").text();
+        let hearingImpairment = $('#hearing').find(":selected").text();
+
+        console.log("phsicalImpairment", phsicalImpairment)
 
 
 

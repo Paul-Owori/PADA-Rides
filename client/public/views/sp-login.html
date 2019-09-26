@@ -42,19 +42,29 @@
             <!-- Login Section -->
             <div id="logIn">
                 <div id="loginCard" class="trip-card trip-gray-background">
-                    <h2>Login</h2>
-                    <p>Already have an account?<br>Signin here:</p>
+
+                    <div class="card-header">
+
+
+                        <h2>Login</h2>
+                        <p>Don't have an account? <span class="open-signup trip-bold trip-red-color">Signup here.</span>
+                        </p>
+                    </div>
 
                     <!-- Login form -->
                     <form id="access">
-                        <label for="email">Email Address</label><br>
+
                         <input type="text" name="email" id="email" placeholder="Your Email Address..."><br>
-                        <label for="password">Password</label><br>
+
                         <input type="password" name="password" id="password" placeholder="Your Password..."><br>
 
                         <!-- Form control buttons -->
-                        <button id="spSignin" type="submit" class="btn-success">Signin</button>
-                        <button id="clear" type="reset">Cancel</button><br>
+
+                        <div class=button-container>
+
+                            <button id="spSignin" type="submit" class="btn-success">Signin</button>
+                            <button id="clear" type="reset">Cancel</button>
+                        </div>
                         <a href="#">Forgot Password?</a>
                     </form>
                 </div>
@@ -63,62 +73,88 @@
             <!-- Signup Section -->
             <div id="signUp">
                 <div id="signinCard" class="trip-card trip-gray-background">
-                    <h2>Sign Up</h2>
-                    <p>Register here:</p>
+
+                    <div class="card-header">
+
+
+                        <h2>Sign Up</h2>
+                        <p>Already have an account? <span class="open-login trip-bold trip-red-color">login here.</span>
+                        </p>
+                    </div>
 
                     <!-- Registration form -->
                     <form id="join">
                         <div class="form-group-row">
-                            <label for="First name">First name:</label><br>
-                            <input type="text" name="First name" id="First name" placeholder="Your First Name...">
+
+                            <input type="text" id="firstName" placeholder="Your First Name...">
                         </div>
                         <div class="form-group-row">
-                            <label for="Last name">Last name:</label><br>
-                            <input type="text" name="Last name" id="Last name" placeholder="Your Last Name...">
+
+                            <input type="text" id="lastName" placeholder="Your Last Name...">
                         </div>
                         <div class="form-group-row">
-                            <label for="Email address">Email Address:</label><br>
-                            <input type="text" name="Email address" id="Email address"
-                                placeholder="Your Email Address...">
+
+                            <input type="text" id="emailAddress" placeholder="Your Email Address...">
+                        </div>
+
+                        <div class="form-group-row">
+
+                            <input type="text" id="permitNumber" placeholder="Your permit number...">
+                        </div>
+
+                        <div class="form-group-row">
+
+                            <input type="number" id="phoneNumber" placeholder="Your Phone number...">
+                        </div>
+
+                        <div class="form-group-row">
+
+                            <input type="text" id="vehicleReg" placeholder="Your vehicle registration number...">
                         </div>
                         <div class="form-group-row">
-                            <label for="Username">Username:</label><br>
-                            <input type="text" name="Username" id="Username" placeholder="Your preferred username...">
+
+                            <input type="password" id="password1" placeholder="Input password">
                         </div>
                         <div class="form-group-row">
-                            <label for="Permit number">Permit number:</label><br>
-                            <input type="password" name="Permit number" id="Permit number"
-                                placeholder="Your permit number...">
+
+                            <input type="password" id="password2" placeholder="Confirm password">
                         </div>
-                        <div class="form-group-row">
-                            <label for="Vehicle">Vehicle Type:</label><br>
-                            <select id="Vehicle" name="Vehicle">
+
+                        <div class="form-group-row select-container">
+
+                            <label for="vehicleType">Vehicle Type:</label>
+                            <select id="vehicleType" name="vehicleType">
                                 <option>Standard Car (4-5passengers)</option>
                                 <option>Large Car (8+ passengers)</option>
                                 <option>Modified Car (Equiped with ramp)</option>
                                 <option>Standard Motorcycle (Two-Wheeler)</option>
                                 <option>Modified Motorcycle (3+ Wheels)</option>
-                                <option>Other</option>
+
                             </select>
                         </div>
-                        <div class="form-group-row">
-                            <label for="Vehicle reg.">Vehicle Registration No.:</label><br>
-                            <input type="password" name="Vehicle reg." id="Vehicle reg."
-                                placeholder="Your vehicle registration number...">
-                        </div>
-                        <div class="form-group-row">
-                            <label for="New password">New Password:</label><br>
-                            <input type="password" name="New password" id="New password" placeholder="Input password">
-                        </div>
-                        <div class="form-group-row">
-                            <label for="Confirm password">Confirm Password:</label><br>
-                            <input type="password" name="Confirm password" id="Confirm password"
-                                placeholder="Confirm password">
+
+                        Do you have any training with caring for P.W.D's? <br />
+
+                        <div class="trained-check-wrapper">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" name="trainedCheck" class="custom-control-input" id="trainedFalse"
+                                    value="false" />
+                                <label class="custom-control-label" for="trainedFalse">No</label>
+                            </div>
+
+                            <div class="custom-control custom-radio custom-control-inline no-padding">
+                                <input type="radio" name="trainedCheck" class="custom-control-input" id="trainedTrue"
+                                    value="true" />
+                                <label class="custom-control-label" for="trainedTrue">Yes</label>
+                            </div>
                         </div>
 
                         <!-- Form control buttons -->
-                        <button id="create" type="submit" class="btn-primary">Create Account</button><br>
-                        <button id="cancel" type="reset" class="btn-danger">Cancel</button>
+                        <div class="button-container">
+
+                            <button id="create" type="submit" class="btn-primary">Create Account</button>
+                            <button id="cancel" type="reset" class="btn-danger">Cancel</button>
+                        </div>
                     </form>
                 </div>
             </div>

@@ -1,0 +1,124 @@
+/* Theme colors are red white black and grey */
+
+.all-content {
+    display: flex;
+}
+
+
+.mid-content {
+    flex: 8;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    overflow-y: auto;
+    max-height: 100vh
+}
+
+.right-content {
+    flex: 2;
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
+.trip-card {
+    border-radius: 8px;
+    box-shadow: 1px 2px 5px 0.3px #686868;
+    padding: 1rem;
+    margin: 1.4rem;
+}
+
+.trip-red-color {
+    color: #dc3545;
+}
+
+.trip-white-color {
+    color: #fff;
+}
+
+.trip-gray-color {
+    color: rgba(245, 245, 245, 1);
+
+}
+
+.trip-red-background {
+    background: rgb(220, 53, 69, 0.8);
+    color: #fff;
+}
+
+.trip-gray-background {
+    background: rgba(245, 245, 245, 0.8);
+    color: black;
+}
+
+.trip-white-background {
+    background: #fff;
+    color: #dc3545;
+}
+
+.trip-bold {
+    font-weight: bold
+}
+
+/* Trip Logo */
+.trip-logo {
+    color: #dc3545;
+    background: #fff;
+    border: 2px solid #dc3545;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    font-size: 2em;
+    text-align: center;
+    margin: 0rem;
+}
+
+.trip-logo:hover {
+    color: #fff;
+    background: #dc3545;
+    border: 1.5px solid #fff;
+    cursor: pointer;
+}
+
+/* Buttons */
+button {
+    border-radius: 4px;
+    font-weight: bold;
+    padding: 0.5rem;
+    box-shadow: 0.6px 0.4px 1px 0.4px #686868;
+    border: 2px
+}
+
+button:hover,
+button:focus,
+button:active {
+    outline: none;
+
+}
+
+input {
+    padding: 0.5rem;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: 1.1rem;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none;
+}
+
+
+/* Classes to hide and reveal content */
+.hide {
+    display: none;
+}
+
+.reveal {
+    display: initial;
+}
