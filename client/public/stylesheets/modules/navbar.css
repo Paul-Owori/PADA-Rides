@@ -4,7 +4,7 @@ nav {
     width: 15%;
     padding: 0rem 0rem 2rem 0rem;
     box-shadow: 1px 2px 5px 0.3px #b9b9b9;
-    background: rgb(220, 53, 69, 0.8);
+    background: rgb(220, 53, 69, 1);
     color: #fff;
     font-weight: bold;
     display: flex;
@@ -16,6 +16,7 @@ nav {
     align-items: center;
     margin: 0rem;
     padding: 0.3rem 0rem 0.3rem 0.2rem;
+    text-decoration: none;
 
 }
 
@@ -24,14 +25,18 @@ nav {
     font-size: 1.8em;
     padding-left: 0.1rem;
     cursor: pointer;
+    color: #fff;
+
 }
 
 .nav-header:hover {
     background: #fff;
+    text-decoration: none;
 }
 
 .nav-header:hover .trip-letters {
     color: #dc3545;
+    text-decoration: none;
 }
 
 .nav-header:hover .trip-logo {
@@ -39,6 +44,7 @@ nav {
     background: #dc3545;
     border: 1.5px solid #fff;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .navlink-container {

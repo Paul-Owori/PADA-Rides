@@ -16,7 +16,7 @@
     <!-- Custom Stylesheets -->
     <!-- Base CSS (Must-have) -->
     <link rel="stylesheet" href="../stylesheets/base.css">
-    
+
     <link rel="stylesheet" href="../stylesheets/themes/sp-login.css">
 
 
@@ -29,10 +29,13 @@
 
         <!-- Logo display -->
         <div id="sideBar" class="trip-red-background">
-            <div id="logo">
-                <div class="trip-logo">T</div>
-                <span class="trip-letters">rip</span>
-            </div>
+            <a href="/">
+                <div id="logo">
+                    <div class="trip-logo trip-bold">T</div>
+                    <span class="trip-letters trip-bold">rip</span>
+                </div>
+            </a>
+
         </div>
         <div id="content">
 
@@ -50,7 +53,7 @@
                         <input type="password" name="password" id="password" placeholder="Your Password..."><br>
 
                         <!-- Form control buttons -->
-                        <button id="signin" type="submit" class="btn-success">Signin</button>
+                        <button id="spSignin" type="submit" class="btn-success">Signin</button>
                         <button id="clear" type="reset">Cancel</button><br>
                         <a href="#">Forgot Password?</a>
                     </form>
@@ -71,11 +74,12 @@
                         </div>
                         <div class="form-group-row">
                             <label for="Last name">Last name:</label><br>
-                            <input type="text"name="Last name" id="Last name" placeholder="Your Last Name...">
+                            <input type="text" name="Last name" id="Last name" placeholder="Your Last Name...">
                         </div>
                         <div class="form-group-row">
                             <label for="Email address">Email Address:</label><br>
-                            <input type="text" name="Email address" id="Email address" placeholder="Your Email Address...">
+                            <input type="text" name="Email address" id="Email address"
+                                placeholder="Your Email Address...">
                         </div>
                         <div class="form-group-row">
                             <label for="Username">Username:</label><br>
@@ -83,7 +87,8 @@
                         </div>
                         <div class="form-group-row">
                             <label for="Permit number">Permit number:</label><br>
-                            <input type="password" name="Permit number" id="Permit number" placeholder="Your permit number...">
+                            <input type="password" name="Permit number" id="Permit number"
+                                placeholder="Your permit number...">
                         </div>
                         <div class="form-group-row">
                             <label for="Vehicle">Vehicle Type:</label><br>
@@ -98,7 +103,8 @@
                         </div>
                         <div class="form-group-row">
                             <label for="Vehicle reg.">Vehicle Registration No.:</label><br>
-                            <input type="password" name="Vehicle reg." id="Vehicle reg." placeholder="Your vehicle registration number...">
+                            <input type="password" name="Vehicle reg." id="Vehicle reg."
+                                placeholder="Your vehicle registration number...">
                         </div>
                         <div class="form-group-row">
                             <label for="New password">New Password:</label><br>
@@ -106,7 +112,8 @@
                         </div>
                         <div class="form-group-row">
                             <label for="Confirm password">Confirm Password:</label><br>
-                            <input type="password" name="Confirm password" id="Confirm password" placeholder="Confirm password">
+                            <input type="password" name="Confirm password" id="Confirm password"
+                                placeholder="Confirm password">
                         </div>
 
                         <!-- Form control buttons -->
@@ -115,12 +122,13 @@
                     </form>
                 </div>
             </div>
-        </div>               
+        </div>
     </div>
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
+    <script src="../scripts/animations/sp-login.js"></script>
 </body>
 
 </html>

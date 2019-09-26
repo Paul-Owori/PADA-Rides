@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const fileUpload = require("express-fileupload");
 const port = process.env.PORT || 4000;
 
-// Importing routes
+//Importing routes
 const commuterRoutes = require('./server/routes/commuters')
 const spRoutes = require('./server/routes/sps')
 const tripRoutes = require('./server/routes/trips')

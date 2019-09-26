@@ -1,58 +1,87 @@
 /* Web layout */
-#container{
+/* #container {
   display: flex;
   flex-direction: column;
+} */
+
+#sideBar {
+  padding: 0.5rem;
+  position: fixed;
+  width: 100%;
+  box-shadow: 1px 2px 5px 0.3px #b9b9b9;
+
 }
-#logo{
+
+#logo {
   flex: 2;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
-#content{
-  flex: 10;
+
+.trip-letters {
+  color: #fff;
+  padding-left: 0.1rem;
+  font-size: 1.2em;
+}
+
+#content {
   display: flex;
-  text-align: center;
+  padding: 0.5rem;
+  padding-top: 5rem;
 }
-#logIn{
-  flex: 6;;
-}
-#signUp{
+
+#logIn,
+#signUp {
   flex: 6;
+
+}
+
+.trip-card {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 /* For larger displays*/
-@media (min-width: 960px){
-  #logIn{
-  padding: 15% 0    
+/* @media (min-width: 960px) {
+  #logIn {
+    padding: 15% 0
   }
-  #loginCard{
-  padding: 15% 0;
-}
-}
+
+  #loginCard {
+    padding: 15% 0;
+  }
+} */
 
 /* Mobile Layout */
-@media (max-width: 960px){
-#content{
-  display: flex;
-  flex-direction: column;
-}
-#logIn{
-  flex: 6;
-}
-#signUp{
-  flex: 6;
-}
+@media (max-width: 960px) {
+  #content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #logIn {
+    flex: 6;
+  }
+
+  #signUp {
+    flex: 6;
+  }
 }
 
 /* Special Features*/
-label{
+label {
   font-weight: bold;
 }
-input, select{
+
+input,
+select {
   max-width: 100%;
   margin: 0.2rem 0rem 1rem 0rem;
 }
-button{
+
+button {
   margin: 0.5rem;
 }

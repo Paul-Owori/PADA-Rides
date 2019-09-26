@@ -20,14 +20,14 @@
     <link rel="stylesheet" href="/stylesheets/themes/landing-page.css">
 
 
-    <title>Trip-Homepage</title>
+    <title>Trip</title>
 </head>
 
 <body>
-    <div id="container" class="trip-red-background">
+    <div id="container" class="trip-white-background">
 
         <!--Edit Image Features here -->
-        <div id="carousel" class="carousel slide" data-ride="carousel">
+        <!-- <div id="carousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="/assets/Trip_Comfortable.jpg" class="d-block w-100" alt="Comfortable">
@@ -54,24 +54,36 @@
                     </div>
                 </div>
             </div>
-        </div>        
-        
+        </div> -->
+
         <!--Edit text features here -->
         <div id="details">
-            <div id="logo">
-                <div class="trip-logo">T</div>
-                <span class="trip-letters">rip</span>
+
+            <div class="trip-card trip-red-background ">
+
+                <div class="logo-container display-4">
+
+                    <div class="trip-homepage-logo">T</div>
+                    <span class="trip-letters trip-white-color">rip</span>
+
+                </div>
+
+                <div class="trip-white-color">
+                    <h2>Looking for a ride?</h2>
+                    <p class="trip-bold">Trip can get you wherever you need to go.</p>
+
+                    <div class="btn-container">
+                        <a href="/views/commuter-login.html">
+                            <button id="commuters" class="btn btn-success">I need a Ride</button>
+                        </a>
+                        <a href="/views/sp-login.html">
+                            <button id="sProviders" class="btn btn-warning">I can be of Service</button>
+                        </a>
+                    </div>
+
+                </div>
             </div>
-            <div>
-                <h2>Looking for a ride?</h2>
-                <p>Trip can get you wherever you need to go.</p>
-                <a href="/views/c-login.html">
-                    <button id="commuters" class="btn btn-outline-success">I need a Ride</button>
-                </a>
-                <a href="/views/sp-login.html">
-                    <button id="sProviders" class="btn btn-outline-warning">I can be of Service</button>
-                </a>
-            </div>
+
         </div>
     </div>
 

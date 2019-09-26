@@ -19,8 +19,8 @@
     <!-- Navbar CSS (Must-have) -->
     <link rel="stylesheet" href="../stylesheets/modules/navbar.css">
 
-    <!-- sp-profile.css -->
     <link rel="stylesheet" href="../stylesheets/themes/sp-profile.css">
+
 
     <title>PADA-Rides</title>
 </head>
@@ -36,13 +36,23 @@
             </div>
 
 
-            <div class="nav-header nav-hidden">
-                <div class="trip-logo">T</div>
-                <span class="trip-letters">rip</span>
+            <a href="/">
+                <div class="nav-header nav-hidden">
+                    <div class="trip-logo">T</div>
+                    <span class="trip-letters">rip</span>
+                </div>
+            </a>
+
+            <div class="navlink-container nav-hidden">
+                <a href="/" class="navlink">Home</a>
             </div>
 
             <div class="navlink-container nav-hidden">
-                <a href="#" class="navlink">Item 1</a>
+                <a href="./sp-dashboard.html" class="navlink">Dashboard</a>
+            </div>
+
+            <div class="navlink-container nav-hidden">
+                <a href="./sp-profile.html" class="navlink">Profile</a>
             </div>
 
         </nav>
@@ -52,25 +62,84 @@
 
             <div class="trip-card">
 
-                <h1>WelcomeToPadaInclusiveTrip</h1>
-                <p>This is an inclusive means of transport for all</p>
-                <img src="../assets/pexels-photo-1205033 (1).jpeg">
-                <form>
-                    <label>Email</label><br>
-                    <input type="email" required><br>
-                    <label>password</label><br>
-                    <input type="password" required><br>
-                    <br><button id="login"><a href="account.html">login</a></button><br>
-                    <ul>
-                    <li><a href="forgot password.html"><strong>forgot password</strong></a></li>
-            </ul>
-                </form>
-            </div>
-        </div>
+                <!-- Profile image -->
+                <div class="details">
 
-        <!-- Content at the end / right -->
-        <div class="right-content"></div>
-    </div>    
+                    <div id="profileContainer" class="details-left">
+
+                        <img id="spProfile"
+                            src="https://images.pexels.com/photos/2918519/pexels-photo-2918519.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                            alt="">
+                    </div>
+
+
+                    <div class="details-right">
+                        <!-- Upload btn -->
+                        <button class="upload-photo-btn  btn btn-danger">Upload new photo</button>
+                        <!-- Delete btn -->
+                        <button class="delete-photo-btn  btn btn-secondary">Delete</button>
+                    </div>
+
+                </div>
+
+                <!-- User details -->
+
+                <div class="details">
+                    <div class="details-left trip-bold">
+                        First Name:
+                    </div>
+                    <div class="details-right">
+                        <input type="text" placeholder="First name" id="firstName">
+                    </div>
+                </div>
+
+
+                <div class="details">
+                    <div class="details-left trip-bold">
+                        Last Name:
+                    </div>
+                    <div class="details-right">
+                        <input type="text" placeholder="Last name" id="lastName">
+                    </div>
+                </div>
+
+
+                <div class="details">
+                    <div class="details-left trip-bold">
+                        User Name:
+                    </div>
+                    <div class="details-right">
+                        <input type="text" placeholder="User name" id="userName">
+                    </div>
+                </div>
+
+
+                <div class="details">
+                    <div class="details-left trip-bold">
+                        Email:
+                    </div>
+                    <div class="details-right">
+                        <input type="text" placeholder="Email" id="email">
+                    </div>
+                </div>
+
+                <hr>
+
+                <div>
+                    <h5 class="trip-bold">Bio:</h5>
+
+
+                    <textarea class="bio-text" name="bio" id="bio" cols="60" rows="7"
+                        placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aspernatur dignissimos quia assumenda nostrum, culpa iste sunt nesciunt molestias accusamus, sitobcaecati repellendus iure quam eos incidunt. Accusamus, earum iusto?"></textarea>
+
+                    <button class="btn btn-success">
+                        Save changes
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
     </div>
 
     <!-- JQuery -->
@@ -81,4 +150,5 @@
     <script src="../scripts/module-scripts/nav-bar.js"></script>
 
 </body>
+
 </html>
