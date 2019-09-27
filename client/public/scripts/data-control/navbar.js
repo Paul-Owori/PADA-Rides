@@ -7,6 +7,7 @@ $(document).ready(() => {
         if (loggedInSp !== null) {
             sessionStorage.removeItem('sp')
             window.open('../../views/sp-login.html', '_self')
+<<<<<<< HEAD
         } else if (loggedInCommuter !== null) {
             sessionStorage.removeItem('commuter')
             window.open('../../views/commuter-login.html', '_self')
@@ -15,6 +16,18 @@ $(document).ready(() => {
         }
 
 
+=======
+        }
+        if (loggedInCommuter !== null) {
+            sessionStorage.removeItem('commuter')
+            window.open('../../views/commuter-login.html', '_self')
+        }
+        else{
+        window.open('../../index.html', '_self')            
+        }
+
+        
+>>>>>>> 2b773c41b5683659e424ddb5d1ca53c5e05aa0ad
     })
 
 })
