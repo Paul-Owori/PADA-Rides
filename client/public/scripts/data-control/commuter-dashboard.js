@@ -1,3 +1,16 @@
+//pageHeader
+
+//Before document is ready, insert the user data
+let loggedInCommuter = JSON.parse(sessionStorage.getItem('commuter'))
+
+//console.log()
+
+if (loggedInCommuter !== null) {
+    $('#pageHeader').replaceWith(`<h2 class="trip-red-color center-content" id="pageHeader">Welcome ${loggedInCommuter.firstName}! </h2>`)
+
+
+}
+
 $(document).ready(() => {
     console.log("dashboard data gathering Ready")
 

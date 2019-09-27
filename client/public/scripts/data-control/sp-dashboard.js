@@ -1,3 +1,12 @@
+//Before document is ready, insert the user data
+let loggedInSp = JSON.parse(sessionStorage.getItem('sp'))
+
+//console.log()
+
+if (loggedInSp !== null) {
+    $('#pageHeader').replaceWith(`<h2 class="trip-red-color center-content" id="pageHeader">Welcome ${loggedInSp.firstName}! </h2>`)
+}
+
 $(document).ready(() => {
 
     // Handling service provider availability
