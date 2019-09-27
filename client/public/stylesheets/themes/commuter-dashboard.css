@@ -32,6 +32,8 @@
     padding: 0rem;
     min-height: 12rem;
     min-width: 12rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card-container {

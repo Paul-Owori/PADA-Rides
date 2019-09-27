@@ -23,12 +23,23 @@ $(document).ready(() => {
             })
             .then(response => {
                 //console.log("Response received", response.json())
-                return response.json();
+                // let responseObject = {
+                //     status: response.status,
+                //     data: response.json(),
+                // }
+                // return responseObject;
+
+                return response.json()
             })
             .then(response => {
+                if (response.message) {
+                    alert("Error signing in, please try again")
+                } else {
+                    sessionStorage.setItem('sp', JSON.stringify(response));
+                    window.open('../../views/sp-dashboard.html', '_self')
+                }
                 console.log(response)
             })
-
 
 
     })

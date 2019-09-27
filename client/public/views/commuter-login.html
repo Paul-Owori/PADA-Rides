@@ -1,232 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <!-- Bootstrap -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
 
-    <!-- Fontawesome icons -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
-      crossorigin="anonymous"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
-    <!-- Custom Stylesheets -->
-    <!-- Base CSS (Must-have) -->
-    <link rel="stylesheet" href="../stylesheets/base.css" />
+  <!-- Fontawesome icons -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
 
-    <link rel="stylesheet" href="../stylesheets/themes/commuter-login.css" />
+  <!-- Custom Stylesheets -->
+  <!-- Base CSS (Must-have) -->
+  <link rel="stylesheet" href="../stylesheets/base.css" />
 
-    <title>Login</title>
-  </head>
+  <link rel="stylesheet" href="../stylesheets/themes/commuter-login.css" />
 
-  <body>
-    <!--Commuter Login page -->
-    <div id="container">
-      <!-- Logo display -->
-      <div id="sideBar" class="trip-red-background">
-        <a href="/">
-          <div id="logo">
-            <div class="trip-logo trip-bold">T</div>
-            <span class="trip-letters trip-bold">rip</span>
+  <title>Login</title>
+</head>
+
+<body>
+  <!--Commuter Login page -->
+  <div id="container">
+    <!-- Logo display -->
+    <div id="sideBar" class="trip-red-background">
+      <a href="/">
+        <div id="logo">
+          <div class="trip-logo trip-bold">T</div>
+          <span class="trip-letters trip-bold">rip</span>
+        </div>
+      </a>
+    </div>
+
+    <div id="content">
+      <!-- Login Section -->
+      <div id="logIn">
+        <div id="loginCard" class="trip-card trip-gray-background">
+          <div class="card-header">
+            <h2>Login</h2>
+            <p>
+              Dont have an account?<br />
+              <span class="trip-bold trip-red-color open-signup">
+                Signup here:</span>
+            </p>
           </div>
-        </a>
+
+          <!-- Login form -->
+          <form id="access">
+            <input type="text" name="email" id="emailLogin" placeholder="Your Email Address..." /><br />
+
+            <input type="password" name="password" id="passwordLogin" placeholder="Your Password..." /><br />
+
+            <!-- Form control buttons -->
+            <div class="button-container">
+              <button id="commuterSignin" type="submit" class="btn-success">
+                Signin
+              </button>
+              <button id="clear" type="reset">Cancel</button><br />
+            </div>
+            <a href="#">Forgot Password?</a>
+          </form>
+        </div>
       </div>
 
-      <div id="content">
-        <!-- Login Section -->
-        <div id="logIn">
-          <div id="loginCard" class="trip-card trip-gray-background">
-            <div class="card-header">
-              <h2>Login</h2>
-              <p>
-                Dont have an account?<br />
-                <span class="trip-bold trip-red-color open-signup">
-                  Signup here:</span
-                >
-              </p>
+      <!-- Signup Section -->
+      <div id="signUp">
+        <div id="signinCard" class="trip-card trip-gray-background">
+          <div class="card-header">
+            <h2>Sign Up</h2>
+            <p>
+              Already have an account?
+              <span class="trip-bold trip-red-color open-login">login here.</span>
+            </p>
+          </div>
+
+          <!-- Registration form -->
+          <form id="join">
+            <div class="form-group-row">
+              <input type="text" name="First name" id="firstName" placeholder="Your First Name..." />
+            </div>
+            <div class="form-group-row">
+              <input type="text" name="Last name" id="lastName" placeholder="Your Last Name..." />
+            </div>
+            <div class="form-group-row">
+              <input type="text" name="Email address" id="email" placeholder="Your Email Address..." />
             </div>
 
-            <!-- Login form -->
-            <form id="access">
-              <input
-                type="text"
-                name="email"
-                id="emailLogin"
-                placeholder="Your Email Address..."
-              /><br />
-
-              <input
-                type="password"
-                name="password"
-                id="passwordLogin"
-                placeholder="Your Password..."
-              /><br />
-
-              <!-- Form control buttons -->
-              <div class="button-container">
-                <button id="commuterSignin" type="submit" class="btn-success">
-                  Signin
-                </button>
-                <button id="clear" type="reset">Cancel</button><br />
-              </div>
-              <a href="#">Forgot Password?</a>
-            </form>
-          </div>
-        </div>
-
-        <!-- Signup Section -->
-        <div id="signUp">
-          <div id="signinCard" class="trip-card trip-gray-background">
-            <div class="card-header">
-              <h2>Sign Up</h2>
-              <p>
-                Already have an account?
-                <span class="trip-bold trip-red-color open-login"
-                  >login here.</span
-                >
-              </p>
+            <div class="form-group-row">
+              <input type="password" name="New password" id="password1" placeholder="Input password..." />
+            </div>
+            <div class="form-group-row">
+              <input type="password" name="Confirm password" id="password2" placeholder="Confirm password..." />
+            </div>
+            <div class="form-group-row">
+              <input type="Number" name="Confirm password" id="phoneNumber" placeholder="Phone Number..." />
             </div>
 
-            <!-- Registration form -->
-            <form id="join">
-              <div class="form-group-row">
-                <input
-                  type="text"
-                  name="First name"
-                  id="firstName"
-                  placeholder="Your First Name..."
-                />
-              </div>
-              <div class="form-group-row">
-                <input
-                  type="text"
-                  name="Last name"
-                  id="lastName"
-                  placeholder="Your Last Name..."
-                />
-              </div>
-              <div class="form-group-row">
-                <input
-                  type="text"
-                  name="Email address"
-                  id="email"
-                  placeholder="Your Email Address..."
-                />
+            Do you have any disabilities? <br />
+
+            <div class="pwd-check-wrapper">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" name="pwdCheck" class="custom-control-input" id="pwdFalse" value="false" />
+                <label class="custom-control-label" for="pwdFalse">No</label>
               </div>
 
-              <div class="form-group-row">
-                <input
-                  type="password"
-                  name="New password"
-                  id="password1"
-                  placeholder="Input password..."
-                />
+              <div class="custom-control custom-radio custom-control-inline no-padding">
+                <input type="radio" name="pwdCheck" class="custom-control-input" id="pwdTrue" value="true" />
+                <label class="custom-control-label" for="pwdTrue">Yes</label>
               </div>
-              <div class="form-group-row">
-                <input
-                  type="password"
-                  name="Confirm password"
-                  id="password2"
-                  placeholder="Confirm password..."
-                />
-              </div>
-              <div class="form-group-row">
-                <input
-                  type="Number"
-                  name="Confirm password"
-                  id="phoneNumber"
-                  placeholder="Phone Number..."
-                />
-              </div>
+            </div>
 
-              Do you have any disabilities? <br />
-
-              <div class="pwd-check-wrapper">
-                <div class="custom-control custom-radio custom-control-inline">
-                  <input
-                    type="radio"
-                    name="pwdCheck"
-                    class="custom-control-input"
-                    id="pwdFalse"
-                    value="false"
-                  />
-                  <label class="custom-control-label" for="pwdFalse">No</label>
-                </div>
-
-                <div
-                  class="custom-control custom-radio custom-control-inline no-padding"
-                >
-                  <input
-                    type="radio"
-                    name="pwdCheck"
-                    class="custom-control-input"
-                    id="pwdTrue"
-                    value="true"
-                  />
-                  <label class="custom-control-label" for="pwdTrue">Yes</label>
-                </div>
+            <!-- PWD Status checks -->
+            <div class="pwd-status-wrapper">
+              <div class="form-group-row select-container">
+                <label for="visual">Visual impairment:</label>
+                <select id="visual" name="visual">
+                  <option>None</option>
+                  <option>Partial</option>
+                  <option>Total</option>
+                </select>
               </div>
-
-              <!-- PWD Status checks -->
-              <div class="pwd-status-wrapper">
-                <div class="form-group-row select-container">
-                  <label for="visual">Visual impairment:</label>
-                  <select id="visual" name="visual">
-                    <option>None</option>
-                    <option>Partial</option>
-                    <option>Total</option>
-                  </select>
-                </div>
-                <div class="form-group-row select-container">
-                  <label for="hearing">Hearing impairment:</label>
-                  <select id="hearing" name="hearing">
-                    <option>None</option>
-                    <option>Partial</option>
-                    <option>Total</option>
-                  </select>
-                </div>
-                <div class="form-group-row select-container">
-                  <label for="phsical">Physical impairment:</label>
-                  <select id="physical" name="physical">
-                    <option value="None">None</option>
-                    <option vaue="Wheelchair">Wheelchair</option>
-                    <option value="Crutches">Crutches</option>
-                  </select>
-                </div>
+              <div class="form-group-row select-container">
+                <label for="hearing">Hearing impairment:</label>
+                <select id="hearing" name="hearing">
+                  <option>None</option>
+                  <option>Partial</option>
+                  <option>Total</option>
+                </select>
               </div>
-
-              <!-- Form control buttons -->
-              <div class="button-container">
-                <button id="createCommuter" type="submit" class="btn-primary">
-                  Create Account</button
-                ><br />
-                <button id="cancel" type="reset" class="btn-danger">
-                  Cancel
-                </button>
+              <div class="form-group-row select-container">
+                <label for="phsical">Physical impairment:</label>
+                <select id="physical" name="physical">
+                  <option value="None">None</option>
+                  <option vaue="Wheelchair">Wheelchair</option>
+                  <option value="Crutches">Crutches</option>
+                </select>
               </div>
-            </form>
-          </div>
+            </div>
+
+            <!-- Form control buttons -->
+            <div class="button-container">
+              <button id="createCommuter" type="submit" class="btn-primary">
+                Create Account</button><br />
+              <button id="cancel" type="reset" class="btn-danger">
+                Cancel
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-    <!-- JQuery -->
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"
-    ></script>
+  </div>
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-    <script src="../scripts/animations/commuter-login.js"></script>
-    <script src="../scripts/data-control/commuter-login.js"></script>
-  </body>
+  <script src="../scripts/animations/commuter-login.js"></script>
+  <script src="../scripts/data-control/commuter-login.js"></script>
+  <script src="../scripts/data-control/navbar.js"></script>
+</body>
+
 </html>

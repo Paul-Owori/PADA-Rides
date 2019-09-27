@@ -120,11 +120,16 @@ router.post("/login", (req, res, next) => {
                     _id: sp._id,
                     firstName: sp.firstName,
                     lastName: sp.lastName,
-                    email: sp.email
+                    email: sp.email,
+                    phoneNumber: sp.phoneNumber
                 });
-            } else {
+            } else if (!sp.validPassword(spReceived.password)) {
                 return res.status(404).send({
-                    message: "Wrong Password"
+                    message: "wrong email or password."
+                })
+            } else {
+                return res.status(500).send({
+                    message: "Something went wrong, try logging in again"
                 });
             }
         }

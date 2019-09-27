@@ -5,12 +5,42 @@ $(document).ready(() => {
     $('#commuterSignin').click((e) => {
         e.preventDefault();
 
-        let loginEmail = $('#emailLogin').val();
-        let loginPassword = $('#passwordLogin').val();
-        console.log("Email", loginEmail);
-        console.log("Password", loginPassword)
+        let email = $('#emailLogin').val();
+        let password = $('#passwordLogin').val();
 
-        // Function to attempt login
+        let commuter = {
+            email,
+            password
+        };
+
+
+        fetch("/commuters/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(commuter)
+            })
+            .then(response => {
+                //console.log("Response received", response.json())
+                // let responseObject = {
+                //     status: response.status,
+                //     data: response.json(),
+                // }
+                // return responseObject;
+
+                return response.json()
+            })
+            .then(response => {
+                if (response.message) {
+                    alert("Error signing in, please try again")
+                } else {
+                    console.log(response)
+                    sessionStorage.setItem('commuter', JSON.stringify(response));
+                    window.open('../../views/commuter-dashboard.html', '_self')
+                }
+
+            })
 
     })
 
@@ -26,9 +56,46 @@ $(document).ready(() => {
         let email = $('#email').val();
         let phoneNumber = $('#phoneNumber').val();
         let pwdStatus = $("input[name='pwdCheck']:checked").val();
-        let phsicalImpairment = $('#physical').find(":selected").text();
+        let physicalImpairment = $('#physical').find(":selected").text();
         let visualImpairment = $('#visual').find(":selected").text();
         let hearingImpairment = $('#hearing').find(":selected").text();
+
+        let impairments = {
+            physical: {
+                crutch: physicalImpairment === "Crutches" ? true : false,
+                wheelChair: physicalImpairment === "Wheelchair" ? true : false,
+            },
+            visual: {
+                partial: visualImpairment === "Partial" ? true : false,
+                total: visualImpairment === "Total" ? true : false,
+            },
+            hearing: {
+                partial: hearingImpairment === "Partial" ? true : false,
+                total: hearingImpairment === "Total" ? true : false,
+            },
+        }
+
+
+        let newCommuter = {
+            firstName,
+            lastName,
+            password,
+            email,
+            phoneNumber,
+            impairments,
+            pwdStatus: pwdStatus === "true" ? true : false
+        }
+
+        fetch("/commuters/create", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newCommuter)
+            })
+            .then(response => {
+                return response.json();
+            })
 
 
     })

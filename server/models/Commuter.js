@@ -13,16 +13,15 @@ const commuterSchema = new Schema({
         type: String,
         required: true
     },
-    contact: {
-        email: {
-            type: String,
-            required: true
-        },
-        phoneNumber: {
-            type: Number,
-            required: true
-        },
+    email: {
+        type: String,
+        required: true
     },
+    phoneNumber: {
+        type: Number,
+        required: true
+    },
+
     pwdStatus: {
         type: Boolean,
         required: true

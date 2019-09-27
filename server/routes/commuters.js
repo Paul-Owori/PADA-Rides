@@ -56,24 +56,29 @@ router.get("/:commuterID", (req, res, next) => {
 
 
 // Handling creating a commuter object and storing it in the database
-router.post("/", (req, res, next) => {
+router.post("/create", (req, res, next) => {
     console.log("COMMUTER RECEIVED BY BACKEND==>>", req.body);
 
     //This creates a new commuter object in the database using the commuter model
-    const commuter = new Commuter({
-        _id: new mongoose.Types.ObjectId(),
-        //   item_name: req.body.name,
-        //   rentOrSale: req.body.rentOrSale,
-        //   item_price: req.body.price,
-        //   item_id: req.body.id,
-        //   user_id: req.body.user_id,
-        //   date: req.body.date
-    });
+    const commuter = new Commuter();
+
+
+    //let admin = new Admin();
+
+    commuter.firstName = req.body.firstName;
+    commuter.lastName = req.body.lastName;
+    commuter.email = req.body.email;
+    commuter.phoneNumber = req.body.phoneNumber;
+    commuter.pwdStatus = req.body.pwdStatus;
+    commuter.impairments = req.body.impairments;
+    commuter.setPassword(req.body.password);
+
     //This saves the commuter in the database
     commuter
         .save()
         .then(result => {
 
+            console.log(`Successfuly saved ${commuter}`)
             res.status(201).json({
                 commuter: commuter,
                 result: result
@@ -82,12 +87,53 @@ router.post("/", (req, res, next) => {
         .catch(err => {
             console.log(err);
             res.status(500).json({
-                message: "Error posting commuter at '/commuters'",
+                message: `Error posting commuter ${commuter} at '/commuters/create'`,
                 error: err
             });
         });
 });
 
+
+// Handling logging in a commuter 
+router.post("/login", (req, res, next) => {
+    console.log("COMMUTER RECEIVED BY BACKEND==>>", req.body);
+
+    //This creates a new commuter object in the database using the sp model
+    const commuterReceived = req.body;
+
+
+    //let admin = new Admin();
+    //receives two parameters, admin email and password
+    Commuter.findOne({
+        email: commuterReceived.email
+    }, function (err, commuter) {
+        if (commuter === null) {
+            console.log("No commuter found")
+            return res.status(404).send({
+                message: "commuter not found."
+            });
+        } else {
+            if (commuter.validPassword(commuterReceived.password)) {
+                console.log("commuter succesful login")
+                return res.status(200).send({
+                    _id: commuter._id,
+                    firstName: commuter.firstName,
+                    lastName: commuter.lastName,
+                    email: commuter.email,
+                    phoneNumber: commuter.phoneNumber
+                });
+            } else if (!commuter.validPassword(commuterReceived.password)) {
+                return res.status(404).send({
+                    message: "wrong email or password."
+                })
+            } else {
+                return res.status(500).send({
+                    message: "Something went wrong, try logging in again"
+                });
+            }
+        }
+    });
+});
 
 //Handling updating one commuter
 router.patch("/:commuterID", (req, res, next) => {
