@@ -3,9 +3,11 @@
 	display: flex;
 }
 
+/*
 #carousel {
 	flex: 4;
 }
+*/
 
 #details {
 	flex: 8;
@@ -63,6 +65,40 @@
 	cursor: pointer;
 }
 
+/* For background image change*/
+body{
+	padding: 0%;
+	margin: 0%;
+}
+#container{
+	position: absolute;
+	left: 0;
+	top: 0; 
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	width: 100vw;
+	height: 100vh;
+	animation: back 20s infinite;
+}
+@keyframes back {
+	0%,100%{
+		background-image: url("/assets/Trip_Safety.jpeg");
+	}
+	25%{
+		background-image: url("/assets/Trip_Comfortable.jpg");
+	}
+	50%{
+		background-image: url("/assets/Trip_Reliable.jpeg");
+	}
+	75%{
+		background-image: url("/assets/Trip_Fast.jpeg");
+	}
+	/*
+	100%{
+		background-image: url("/assets/Trip Convenient.jpeg ");
+	}*/
+}
 
 
 /* .logo-container:hover {
