@@ -25,18 +25,12 @@ $(document).ready(() => {
         let password = $('#password1').val();
         let email = $('#email').val();
         let phoneNumber = $('#phoneNumber').val();
-
         let pwdStatus = $("input[name='pwdCheck']:checked").val();
-
         let phsicalImpairment = $('#physical').find(":selected").text();
         let visualImpairment = $('#visual').find(":selected").text();
         let hearingImpairment = $('#hearing').find(":selected").text();
 
-        console.log("phsicalImpairment", phsicalImpairment)
 
-
-
-        console.log("Creating...")
     })
 
 })

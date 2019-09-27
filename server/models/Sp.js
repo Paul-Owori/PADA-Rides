@@ -21,15 +21,13 @@ const spSchema = new Schema({
         type: Boolean,
         required: true
     },
-    contact: {
-        email: {
-            type: String,
-            required: true
-        },
-        phoneNumber: {
-            type: Number,
-            required: true
-        },
+    email: {
+        type: String,
+        required: true
+    },
+    phoneNumber: {
+        type: Number,
+        required: true
     },
     currentAvailability: {
         type: Boolean,

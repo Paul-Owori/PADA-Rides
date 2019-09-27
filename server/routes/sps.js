@@ -56,24 +56,30 @@ router.get("/:spID", (req, res, next) => {
 
 
 // Handling creating a sp object and storing it in the database
-router.post("/", (req, res, next) => {
+router.post("/create", (req, res, next) => {
     console.log("SP RECEIVED BY BACKEND==>>", req.body);
 
     //This creates a new sp object in the database using the sp model
-    const sp = new Sp({
-        _id: new mongoose.Types.ObjectId(),
-        //   item_name: req.body.name,
-        //   rentOrSale: req.body.rentOrSale,
-        //   item_price: req.body.price,
-        //   item_id: req.body.id,
-        //   user_id: req.body.user_id,
-        //   date: req.body.date
-    });
+    const sp = new Sp();
+
+
+    //let admin = new Admin();
+
+    sp.firstName = req.body.firstName;
+    sp.lastName = req.body.lastName;
+    sp.email = req.body.email;
+    sp.phoneNumber = req.body.phoneNumber;
+    sp.permitNumber = req.body.permitNumber;
+    sp.pwdTrained = req.body.pwdTrained;
+    sp.vehicle = req.body.vehicle;
+    sp.setPassword(req.body.password);
+
     //This saves the sp in the database
     sp
         .save()
         .then(result => {
 
+            console.log(`Successfuly saved ${sp}`)
             res.status(201).json({
                 sp: sp,
                 result: result
@@ -86,6 +92,43 @@ router.post("/", (req, res, next) => {
                 error: err
             });
         });
+});
+
+
+// Handling logging in an sp 
+router.post("/login", (req, res, next) => {
+    console.log("SP RECEIVED BY BACKEND==>>", req.body);
+
+    //This creates a new sp object in the database using the sp model
+    const spReceived = req.body;
+
+
+    //let admin = new Admin();
+    //receives two parameters, admin email and password
+    Sp.findOne({
+        email: spReceived.email
+    }, function (err, sp) {
+        if (sp === null) {
+            console.log("No sp found")
+            return res.status(404).send({
+                message: "sp not found."
+            });
+        } else {
+            if (sp.validPassword(spReceived.password)) {
+                console.log("sp succesful login")
+                return res.status(200).send({
+                    _id: sp._id,
+                    firstName: sp.firstName,
+                    lastName: sp.lastName,
+                    email: sp.email
+                });
+            } else {
+                return res.status(404).send({
+                    message: "Wrong Password"
+                });
+            }
+        }
+    });
 });
 
 
