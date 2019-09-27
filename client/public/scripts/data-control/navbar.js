@@ -12,7 +12,7 @@ $(document).ready(() => {
             sessionStorage.removeItem('commuter')
             window.open('../../views/commuter-login.html', '_self')
         }
-        else if{
+        else{
         window.open('../../index.html', '_self')            
         }
 
