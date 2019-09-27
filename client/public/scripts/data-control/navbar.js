@@ -6,11 +6,16 @@ $(document).ready(() => {
 
         if (loggedInSp !== null) {
             sessionStorage.removeItem('sp')
+            window.open('../../views/sp-login.html', '_self')
         }
         if (loggedInCommuter !== null) {
             sessionStorage.removeItem('commuter')
+            window.open('../../views/commuter-login.html', '_self')
+        }
+        else if{
+        window.open('../../index.html', '_self')            
         }
 
-        window.open('../../index.html', '_self')
+        
     })
 })
