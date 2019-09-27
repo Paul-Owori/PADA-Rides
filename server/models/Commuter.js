@@ -21,7 +21,12 @@ const commuterSchema = new Schema({
         type: Number,
         required: true
     },
-
+    bio: {
+        type: String
+    },
+    contactList: {
+        type: Array
+    },
     pwdStatus: {
         type: Boolean,
         required: true

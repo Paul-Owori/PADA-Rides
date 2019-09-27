@@ -29,6 +29,12 @@ const spSchema = new Schema({
         type: Number,
         required: true
     },
+    bio: {
+        type: String
+    },
+    contactList: {
+        type: Array
+    },
     currentAvailability: {
         type: Boolean,
         default: false
