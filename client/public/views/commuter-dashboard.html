@@ -55,20 +55,30 @@
                 <a href="./commuter-profile.html" class="navlink">Profile</a>
             </div>
 
+            <div class="navlink-container nav-hidden">
+                <a href="#" class="navlink" id="logoutBtn">Logout</a>
+            </div>
+
         </nav>
 
         <!-- Middle content -->
         <div class="mid-content trip-gray-background">
 
             <!-- Add a new ride now -->
-            <div class="welcome-header">
-                <h2 class="trip-red-color">Welcome commuterName! </h2>
+            <div class="welcome-header center-content">
+                <h2 class="trip-red-color center-content">Welcome commuterName! </h2>
             </div>
             <div class="trip-flexbox">
 
-                <div class="card-container">
+                <div class="card-container" id="nowRide">
                     <!-- Card header -->
-                    <h4 class="trip-red-color card-header">Find a ride now.</h4>
+                    <h4 class="trip-red-color card-header center-content">Find a ride now.</h4>
+
+
+                    <h6 class="card-sub-header center-content">Or <span id="openAdvance"
+                            class="open-alt trip-red-color">Book a ride in
+                            advance</span> </h6>
+
 
                     <div class="trip-card map-wrapper">
                         <!-- Map will appear here -->
@@ -82,27 +92,15 @@
                                 <span class="search-icon"><i class="fas fa-search-location "></i> </span>
 
                             </div>
+
+                            <div class="location-input">
+                                <input type="text" class="pick-up" placeholder="Destination" id="destination">
+                                <span class="search-icon"><i class="fas fa-search-location "></i> </span>
+
+                            </div>
                             <!-- Fields for PWD's to fill -->
-                            <form class="pwd-fields">
-                                <h6 class="trip-red-color pwd-header">If you are a P.W.D, please check the appropriate
-                                    fields.</h6>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="deafCheck">
-                                    <label class="custom-control-label" for="deafCheck">I have a hearing
-                                        impairment</label>
-                                </div>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="blindCheck">
-                                    <label class="custom-control-label" for="blindCheck">I have a visual
-                                        impairment.</label>
-                                </div>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="physicalCheck">
-                                    <label class="custom-control-label" for="physicalCheck">I am physically handicapped.
-                                    </label>
-                                </div>
-                            </form>
-                            <span class="add-trip-btn">
+
+                            <span class="add-trip-btn" id="tripNow">
                                 Find a ride now <i class="add-trip-plus fas fa-plus-circle"></i>
                             </span>
 
@@ -114,9 +112,13 @@
 
                 <!-- Book a ride in advance -->
 
-                <div class="card-container">
+                <div class="card-container" id="advanceRide">
                     <!-- Card header -->
-                    <h4 class="trip-red-color card-header">Book a ride in advance.</h4>
+                    <h4 class="trip-red-color card-header center-content">Book a ride in advance.</h4>
+
+                    <h6 class="card-sub-header center-content">Or <span id="openNow" class="open-alt trip-red-color">Get
+                            a ride
+                            now.</span> </h6>
 
                     <div class="trip-card map-wrapper">
                         <!-- Map will appear here -->
@@ -127,6 +129,12 @@
                             <!--Location input / search  -->
                             <div class="location-input">
                                 <input type="text" class="pick-up" placeholder="Pickup Location" id="pickUpAdvance">
+                                <span class="search-icon"><i class="fas fa-search-location "></i> </span>
+
+                            </div>
+
+                            <div class="location-input">
+                                <input type="text" class="pick-up" placeholder="Destination" id="destinationAdvance">
                                 <span class="search-icon"><i class="fas fa-search-location "></i> </span>
 
                             </div>
@@ -159,25 +167,6 @@
                                             class="date" type="number" placeholder="Mins" id="dateMins">
                                     </div>
 
-                                </div>
-
-
-                                <h6 class="trip-red-color pwd-header">If you are a P.W.D, please check the appropriate
-                                    fields.</h6>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="deafCheck">
-                                    <label class="custom-control-label" for="deafCheck">I have a hearing
-                                        impairment</label>
-                                </div>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="blindCheck">
-                                    <label class="custom-control-label" for="blindCheck">I have a visual
-                                        impairment.</label>
-                                </div>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="physicalCheck">
-                                    <label class="custom-control-label" for="physicalCheck">I am physically handicapped.
-                                    </label>
                                 </div>
                             </form>
                             <span class="add-trip-btn">
@@ -226,7 +215,11 @@
                             Ntinda</span></div>
                     <div class="detail-wrapper"><span class="detail-label">Phone Number:</span><span class="detail">
                             0772123456</span></div>
-                    <span class="dropdown-btns"><i class="fas fa-caret-up drop-up-btn"></i><i
+
+                </div>
+                <div class="dropdown-container">
+
+                    <span class="dropdown-btns" id="ongoingDropdown"><i class="fas fa-caret-up drop-up-btn"></i><i
                             class="fas fa-caret-down drop-down-btn"></i></span>
                 </div>
 
@@ -244,9 +237,13 @@
                     </div>
                     <form class="input-msg">
                         <input id="inputMsg" type="text" placeholder="Write a message..."> <span class="send-btn"><i
-                                class="fas fa-paper-plane"></i></span>
+                                class="fas fa-paper-plane" id="sendText"></i></span>
                     </form>
-                    <span class="dropdown-btns"><i class="fas fa-caret-up drop-up-btn"></i><i
+
+                </div>
+                <div class="dropdown-container">
+
+                    <span class="dropdown-btns" id="textDropdown"><i class="fas fa-caret-up drop-up-btn"></i><i
                             class="fas fa-caret-down drop-down-btn"></i></span>
                 </div>
             </div>
@@ -272,6 +269,7 @@
     <!-- Navbar controller -->
     <script src="../scripts/module-scripts/nav-bar.js"></script>
 
+    <script src="../scripts/animations/dashboards.js"></script>
     <script src="../scripts/data-control/commuter-dashboard.js"></script>
 
 </body>

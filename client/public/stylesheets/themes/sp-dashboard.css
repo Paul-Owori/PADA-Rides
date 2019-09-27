@@ -219,6 +219,12 @@ form {
 
 
 /* Right side view */
+
+.text-box,
+.trip-details {
+    display: none;
+}
+
 .ongoing-trip,
 .text-interface {
     padding-right: 0rem;
@@ -244,12 +250,47 @@ form {
 
 }
 
+#directionsCard {
+    display: none;
+}
+
 .profile-container img {
     height: 100%;
     width: auto
 }
 
+.dropdown-container {
+    background: #dc3545;
+    padding: 0.3rem;
+}
+
+/* .cancel-trip-btn {
+    margin-left: auto;
+    margin-right: auto;
+    color: blue
+} */
+
+/* Trip control btns */
+
+.map-btns {
+    display: flex;
+}
+
+.map-btns span {
+    flex: 6;
+    margin: 1rem;
+}
+
+#startTrip,
+#endTrip {
+    display: none;
+    text-align: center;
+}
+
+
+
 .trip-details,
+.available-toggle,
 .text-box {
     margin: 0.5rem 0rem 0rem 0rem;
     height: 100%;

@@ -22,6 +22,9 @@
     width: auto
 }
 
+.trip-details {
+    display: none;
+}
 
 .details {
     display: flex;

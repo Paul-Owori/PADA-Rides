@@ -8,6 +8,12 @@
     border-bottom: 2px solid #dc3545
 }
 
+.trip-card {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .trip-flexbox {
     display: flex;
     justify-content: space-between;
@@ -33,13 +39,16 @@
     flex: 6;
 }
 
-.card-header {
-    padding-left: 1.5rem;
-    background: none;
-    border: none;
-    margin-top: 1.2rem;
-    padding-bottom: 0rem;
+.open-alt {
+    font-weight: bold;
+    cursor: pointer;
 }
+
+#advanceRide {
+    display: none;
+}
+
+
 
 .trip-flexbox .card-container .trip-card {
     background: #fff;
@@ -55,6 +64,8 @@
     border: solid 2px gray;
     border-radius: 5px;
     padding: 0.3rem;
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
 
 }
 
@@ -234,8 +245,17 @@ form {
     flex: 7;
 }
 
+.dropdown-container {
+    background: #dc3545;
+    padding: 0.3rem;
+}
 
 /* Text interface */
+
+.text-box,
+.trip-details {
+    display: none;
+}
 
 .msg-display {
     border-radius: 5px;
