@@ -3,31 +3,26 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const Trip = require("../models/Trip");
 
-
-// Handling GET requests for all trips 
+// Handling GET requests for all trips
 router.get("/", (req, res, next) => {
-
     Trip.find()
         .exec()
         .then(trips => {
             if (trips.length > 0) {
-                res.status(200).json(trips)
+                res.status(200).json(trips);
             } else {
                 res.status(404).json({
                     message: "No entries found"
-                })
+                });
             }
         })
         .catch(err => {
             console.log("Error getting trips at '/trips'");
             res.status(500).json({
                 message: "Error getting trips at '/trips'"
-            })
-
-        })
-
+            });
+        });
 });
-
 
 // Handling GET requests for a single trip by ID
 router.get("/:tripID", (req, res, next) => {
@@ -39,7 +34,7 @@ router.get("/:tripID", (req, res, next) => {
             if (trip) {
                 res.status(200).json(trip);
             } else {
-                console.log("404 error, that trip does not exist")
+                console.log("404 error, that trip does not exist");
                 res.status(404).json({
                     message: "That trip does not exist"
                 });
@@ -54,14 +49,13 @@ router.get("/:tripID", (req, res, next) => {
         });
 });
 
-
 //Handling GET requests for all the trips associated with a particular commuter
 router.get("/commuter/:commuterID", (req, res, next) => {
     const commuterID = req.params.commuterID;
 
     Trip.find({
-            commuterID: commuterID
-        })
+        commuterID: commuterID
+    })
         .exec()
         .then(trips => {
             if (trips.length > 0) {
@@ -73,7 +67,10 @@ router.get("/commuter/:commuterID", (req, res, next) => {
             }
         })
         .catch(err => {
-            console.log(`Error getting trips for commuter with id ${commuterID}`, err);
+            console.log(
+                `Error getting trips for commuter with id ${commuterID}`,
+                err
+            );
             res.status(500).json({
                 message: `Error getting trips for commuter with id ${commuterID}`,
                 error: err
@@ -81,14 +78,13 @@ router.get("/commuter/:commuterID", (req, res, next) => {
         });
 });
 
-
 //Handling GET requests for all the trips associated with a particular sp
 router.get("/sp/:spID", (req, res, next) => {
     const spID = req.params.spID;
 
     Trip.find({
-            spID: spID
-        })
+        spID: spID
+    })
         .exec()
         .then(trips => {
             if (trips.length > 0) {
@@ -108,40 +104,36 @@ router.get("/sp/:spID", (req, res, next) => {
         });
 });
 
-
 // Handling creating a trip object and storing it in the database
-router.post("/", (req, res, next) => {
+router.post("/create", (req, res, next) => {
     console.log("TRIP RECEIVED BY BACKEND==>>", req.body);
 
     //This creates a new trip object in the database using the trip model
     const trip = new Trip({
         _id: new mongoose.Types.ObjectId(),
-        //   item_name: req.body.name,
-        //   rentOrSale: req.body.rentOrSale,
-        //   item_price: req.body.price,
-        //   item_id: req.body.id,
-        //   user_id: req.body.user_id,
-        //   date: req.body.date
+        pickUp: req.body.pickUp,
+        destination: req.body.destination,
+        commuter_id: req.body.commuter_id,
+        advanceBooking: req.body.advanceBooking
     });
     //This saves the trip in the database
-    trip
-        .save()
+    trip.save()
         .then(result => {
-
             res.status(201).json({
                 trip: trip,
-                result: result
+                result: result,
+                status: 201
             });
         })
         .catch(err => {
             console.log(err);
             res.status(500).json({
                 message: `Error posting trip ${trip} at '/trips'`,
-                error: err
+                error: err,
+                status: 500
             });
         });
 });
-
 
 //Handling updating one trip
 router.patch("/:tripID", (req, res, next) => {
@@ -152,11 +144,14 @@ router.patch("/:tripID", (req, res, next) => {
         updateOps[ops.propName] = ops.value;
     }
 
-    Trip.updateMany({
+    Trip.updateMany(
+        {
             _id: tripID
-        }, {
+        },
+        {
             $set: updateOps
-        })
+        }
+    )
         .exec()
         .then(result => {
             res.status(200).json({
@@ -172,25 +167,23 @@ router.patch("/:tripID", (req, res, next) => {
         });
 });
 
-
 //Handling deleting a single trip
 router.delete("/:tripID", (req, res, next) => {
     const tripID = req.params.tripID;
 
     Trip.deleteOne({
-            _id: tripID
-        })
+        _id: tripID
+    })
         .exec()
         .then(result => {
-
-            console.log(`Trip with ID ${tripID} successfuly deleted`)
+            console.log(`Trip with ID ${tripID} successfuly deleted`);
             res.status(200).json({
                 message: `Trip with ID ${tripID} successfuly deleted`,
                 result
             });
         })
         .catch(err => {
-            console.log(`Error deleting Trip with ID ${tripID}`)
+            console.log(`Error deleting Trip with ID ${tripID}`);
             res.status(500).json({
                 message: `Error deleting Trip with ID ${tripID}`,
                 error: err

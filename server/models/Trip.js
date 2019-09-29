@@ -6,13 +6,12 @@ const tripSchema = new Schema({
     _id: mongoose.Schema.Types.ObjectId,
     sp_id: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Sp",
-        required: true,
+        ref: "Sp"
     },
     commuter_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Commuter",
-        required: true,
+        required: true
     },
     pickUp: {
         type: String,
@@ -23,19 +22,19 @@ const tripSchema = new Schema({
         required: true
     },
     price_est: {
-        type: Number,
-        required: true
+        type: Number
     },
     price_act: {
-        type: Number,
-        required: true
+        type: Number
     },
     start_time: {
-        type: Date,
-        required: true
+        type: Date
     },
     end_time: {
-        type: Date,
+        type: Date
+    },
+    advanceBooking: {
+        type: Boolean,
         required: true
     }
 });
