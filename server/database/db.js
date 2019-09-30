@@ -12,7 +12,7 @@
 
 
 
-
+//Alternative Connection method
 const mongoose = require("mongoose");
 const DB_URI = 'mongodb+srv://pada-rides2:trip256@cluster0-l6z9b.mongodb.net/test?retryWrites=true&w=majority' //process.env.MONGODB_URI;
 
