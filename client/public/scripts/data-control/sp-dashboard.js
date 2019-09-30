@@ -1,6 +1,6 @@
 //Before document is ready, insert the user data
 let loggedInSp = JSON.parse(sessionStorage.getItem("sp"));
-let clients;
+let clients = [];
 let currentClient = JSON.parse(sessionStorage.getItem("currentClient"));
 let clientChosen = false;
 
@@ -22,9 +22,20 @@ let modifySpObject = (key, value) => {
 };
 
 let modifyClientsObject = (newObject) => {
+    let editedArray = []
+    newObject.forEach(objectToCheck => {
 
-    sessionStorage.setItem("clients", newObject);
-    clients = newObject;
+        let repeatedObject = clients.filter(clientObject => {
+            return clientObject._id === objectToCheck._id
+        });
+
+        if (repeatedObject.length === 0) {
+            editedArray.push(objectToCheck)
+        }
+    })
+
+    //sessionStorage.setItem("clients", newObject);
+    clients = [...clients, ...editedArray];
 };
 
 let clientSearch;
