@@ -65,6 +65,8 @@ let showTripDetails = () => {
 
 }
 
+
+
 //let currentSp;
 //function for searching for service providers
 // let spFinder = () => {

@@ -33,6 +33,10 @@ const tripSchema = new Schema({
     end_time: {
         type: Date
     },
+    dateOfTrip: {
+        type: Date,
+        default: new Date()
+    },
     advanceBooking: {
         type: Boolean,
         required: true

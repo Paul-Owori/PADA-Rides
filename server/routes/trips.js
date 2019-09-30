@@ -31,14 +31,27 @@ router.get("/client-search", (req, res, next) => {
         .exec()
         .then(trips => {
             if (trips.length > 0) {
+
                 let clients = trips.filter(tripObject => {
                     return tripObject.sp_id === undefined
-                })
-                console.log(clients)
-                res.status(200).json({
-                    status: 200,
-                    clients
                 });
+
+                console.log("Clients found from backend", clients);
+                console.log("Trips found from backend", trips);
+
+                if (clients.length > 0) {
+                    res.status(200).json({
+                        status: 200,
+                        clients
+                    });
+                } else {
+                    res.status(404).json({
+                        status: 404,
+                        message: "No clients found"
+                    });
+                }
+
+
             } else {
                 res.status(404).json({
                     status: 404,
@@ -265,3 +278,5 @@ router.delete("/:tripID", (req, res, next) => {
 });
 
 module.exports = router;
+
+//client-search

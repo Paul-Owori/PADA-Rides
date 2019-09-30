@@ -1,7 +1,8 @@
 //Before document is ready, insert the user data
 let loggedInSp = JSON.parse(sessionStorage.getItem("sp"));
 let clients = JSON.parse(sessionStorage.getItem("clients"));
-let client = JSON.parse(sessionStorage.getItem("client"));
+let currentClient = JSON.parse(sessionStorage.getItem("currentClient"));
+let clientChosen = false;
 
 //console.log()
 
@@ -26,6 +27,57 @@ let modifyClientsObject = (newObject) => {
 };
 
 let clientSearch;
+
+let showAvailableClients = () => {
+    $('#fillerClient').remove()
+    clients.forEach(potentialTrip => {
+        fetch(`/commuters/${potentialTrip.commuter_id}`)
+
+            .then(response => {
+                return response.json()
+            })
+            .then(potentialClient => {
+                $('#directionsCard').append(`
+        <!-- Client req-sample -->
+        <div class="client-req-wrapper">
+            <div class="client-req">
+                <div class="client-img">
+
+                    <img class="commuter-profile"
+                        src="https://images.pexels.com/photos/2918519/pexels-photo-2918519.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                        alt="">
+                </div>
+                <div class="client-details trip-red-color">
+                    <div class="detail-wrapper"><span class="detail-label">Name:</span><span
+                            class="detail">${potentialClient.firstName + " " + potentialClient.lastName }
+                        </span></div>
+                    <div class="detail-wrapper"><span class="detail-label">Pickup:</span><span
+                            class="detail">${potentialTrip.pickUp}</span></div>
+                    <div class="detail-wrapper"><span class="detail-label">Dropoff:</span><span
+                            class="detail">${potentialTrip.destination}
+                        </span></div>
+                    <div class="detail-wrapper"><span class="detail-label">Price est:</span><span
+                            class="detail">${10000}
+                            UGX</span></div>
+                    <div class="detail-wrapper"><span class="detail-label">Date:</span><span
+                            class="detail">${potentialTrip.dateOfTrip}
+                        </span></div>
+
+                </div>
+
+            </div>
+            <span class="add-trip-btn" id="acceptTrip">
+                Accept Request <i class="add-trip-plus fas fa-plus-circle"></i>
+            </span>
+        </div>`)
+
+            })
+            .catch(err => console.error('Error with fetch request: ', err))
+
+
+
+    })
+}
 
 // After document is ready
 $(document).ready(() => {
@@ -62,31 +114,40 @@ $(document).ready(() => {
 
 
 
-        const searchForClients = () => {
-            fetch('/trips/client-search')
-
-                .then(response => {
-                    return response.json()
-                })
-                .then(response => {
-                    if (response.status !== 200) {
-                        console.log(`Status:${response.status}, No clients available`)
-                    } else {
-                        console.log("clients were found");
-                        modifyClientsObject(response);
-
-                    }
-                })
-                .catch(err => console.error('Error with fetch request: ', err))
-
-        }
 
         //5d8db9b49c8f7e17c87ff95b
 
 
 
         if (currentAvailability === true) {
-            clientSearch = setInterval(searchForClients, 5000)
+
+            clientSearch = setInterval(() => {
+                //count += 1
+                if (clientChosen === true) {
+                    console.log("stopping client search")
+                    clearInterval(clientSearch)
+                } else {
+                    fetch('/trips/client-search')
+
+                        .then(response => {
+                            return response.json()
+                        })
+                        .then(response => {
+
+                            if (response.status !== 200) {
+                                console.log(`Status:${response.status}, No clients available`)
+                            } else {
+                                console.log("clients were found", response);
+                                modifyClientsObject(response);
+
+                                showAvailableClients()
+
+                            }
+                        })
+                        .catch(err => console.error('Error with fetch request: ', err))
+                }
+
+            }, 5000)
         } else if (currentAvailability === false) {
             console.log("Stopping client search")
             clearInterval(clientSearch)
@@ -97,9 +158,10 @@ $(document).ready(() => {
     });
 
     //Accept request, get customer details
-    // $('#').click(() => {
-    //     let tripId = "";
-    // })
+    $('#acceptTrip').click(() => {
+        clientChosen = true;
+        let tripId = "";
+    })
 
     //Handling starting trip
     // $('#startTrip').click(() => {
