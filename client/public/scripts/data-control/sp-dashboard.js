@@ -1,6 +1,6 @@
 //Before document is ready, insert the user data
 let loggedInSp = JSON.parse(sessionStorage.getItem("sp"));
-let clients = JSON.parse(sessionStorage.getItem("clients"));
+let clients;
 let currentClient = JSON.parse(sessionStorage.getItem("currentClient"));
 let clientChosen = false;
 
@@ -23,21 +23,30 @@ let modifySpObject = (key, value) => {
 
 let modifyClientsObject = (newObject) => {
 
-    sessionStorage.setItem("clients", JSON.stringify(newObject));
+    sessionStorage.setItem("clients", newObject);
+    clients = newObject;
 };
 
 let clientSearch;
 
 let showAvailableClients = () => {
+    console.log("Showing clients")
     $('#fillerClient').remove()
+    console.log("Entered the function")
     clients.forEach(potentialTrip => {
-        fetch(`/commuters/${potentialTrip.commuter_id}`)
 
-            .then(response => {
-                return response.json()
-            })
-            .then(potentialClient => {
-                $('#directionsCard').append(`
+        if (!potentialTrip.included) {
+            fetch(`/commuters/${potentialTrip.commuter_id}`)
+
+                .then(response => {
+                    console.log("Fetch started")
+                    return response.json()
+                })
+                .then(potentialClient => {
+                    console.log("Appending work", potentialClient)
+
+
+                    $('#clientDisplay').append(`
         <!-- Client req-sample -->
         <div class="client-req-wrapper">
             <div class="client-req">
@@ -71,11 +80,15 @@ let showAvailableClients = () => {
             </span>
         </div>`)
 
-            })
-            .catch(err => console.error('Error with fetch request: ', err))
+                })
+                .catch(err => console.error('Error with fetch request: ', err))
 
 
 
+        } else {
+            console.log("No extra clients")
+        }
+        potentialTrip.included = "true";
     })
 }
 
@@ -138,9 +151,10 @@ $(document).ready(() => {
                                 console.log(`Status:${response.status}, No clients available`)
                             } else {
                                 console.log("clients were found", response);
-                                modifyClientsObject(response);
+                                modifyClientsObject(response.clients);
+                                showAvailableClients();
 
-                                showAvailableClients()
+
 
                             }
                         })
