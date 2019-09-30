@@ -9,6 +9,13 @@ $(document).ready(() => {
         $('.trip-details').slideToggle()
     })
 
+
+    $('#showOngoingTrip').click(() => {
+        $('.mid-content').fadeToggle("fast", () => {
+            $('.right-content').fadeToggle("fast")
+        })
+    })
+
     //ongoingDropdown
     //trip-details
 

@@ -2,6 +2,14 @@
   text-align: left;
 }
 
+.right-content {
+  display: none;
+}
+
+#showOngoingTrip {
+  display: none;
+}
+
 .welcome-header {
   border-bottom: 2px solid #dc3545;
 }

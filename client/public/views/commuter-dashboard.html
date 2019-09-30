@@ -205,6 +205,9 @@
         <!-- Content at the end / right -->
         <div class="right-content">
 
+            <!-- Invisible button to toggle visibility of ongoing trip -->
+            <button id="showOngoingTrip"></button>
+
             <!-- Ongoing trip card -->
             <div class="trip-card ongoing-trip">
                 <h6 class="trip-red-color">Ongoing trip</h6>
@@ -219,21 +222,26 @@
 
 
                 <!-- Trip details -->
+
                 <div class="trip-red-background trip-details">
-                    <div class="detail-wrapper"><span class="detail-label">Name:</span><span
-                            class="detail">George</span></div>
-                    <div class="detail-wrapper"><span class="detail-label">Vehicle-type:</span><span
-                            class="detail">Toyota Hiace</span>
+                    <div class="detail-wrapper"><span class="detail-label">Name:</span><span class="detail"
+                            id="spNames">George</span></div>
+                    <div class="detail-wrapper"><span class="detail-label">Vehicle-type:</span><span class="detail"
+                            id="spVehicleType">Toyota Hiace</span>
                     </div>
-                    <div class="detail-wrapper"><span class="detail-label">Number-Plate:</span><span
-                            class="detail">George</span></div>
-                    <div class="detail-wrapper"><span class="detail-label">Price est:</span><span class="detail">10000
+                    <div class="detail-wrapper"><span class="detail-label">Number-Plate:</span><span class="detail"
+                            id="spNumberplate">UAB 123F</span></div>
+                    <div class="detail-wrapper"><span class="detail-label">Price est:</span><span class="detail"><span
+                                class="tripPriceEst">10000</span>
                             UGX</span></div>
-                    <div class="detail-wrapper"><span class="detail-label">Pickup:</span><span class="detail">Soliz
+                    <div class="detail-wrapper"><span class="detail-label">Pickup:</span><span class="detail"
+                            id="tripPickup">Soliz
                             House</span></div>
-                    <div class="detail-wrapper"><span class="detail-label">Dropoff:</span><span class="detail">Tuskys
+                    <div class="detail-wrapper"><span class="detail-label">Dropoff:</span><span class="detail"
+                            id="tripDropOff">Tuskys
                             Ntinda</span></div>
-                    <div class="detail-wrapper"><span class="detail-label">Phone Number:</span><span class="detail">
+                    <div class="detail-wrapper"><span class="detail-label">Phone Number:</span><span class="detail"
+                            id="spPhoneNumber">
                             0772123456</span></div>
 
                 </div>

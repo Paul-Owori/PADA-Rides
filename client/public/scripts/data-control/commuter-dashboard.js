@@ -3,7 +3,7 @@
 //Before document is done loading, insert the user data
 let loggedInCommuter = JSON.parse(sessionStorage.getItem("commuter"));
 let commuter_id;
-let sp_id;
+let currentSp = {};
 let currentTrip;
 
 if (loggedInCommuter !== null) {
@@ -27,42 +27,106 @@ if (currentTextMessage !== null) {
     };
 }
 
-let currentSp;
-//function for searching for service providers
-let spFinder = () => {
-    fetch(`/trips/sp-find/${currentTrip._id}`)
+// Function to show ongoing trip details
+
+let showTripDetails = () => {
+    fetch(`/sps/${currentSp._id}`)
 
         .then(response => {
             return response.json()
         })
         .then(response => {
-            if (response.status !== 200) {
-                console.log(`Status:${response.status}, No sps available`)
-            } else {
-                console.log("A service provider was found");
-                findSp(true);
+            currentSp = response
+            return currentSp
+        })
+        .then((currentSp) => {
+            console.log("This is your sp", currentSp)
+            //JQuery to replace the necessary fields
+            //
+            /**spNames
+            spVehicleType
+            spNumberplate
+            tripPriceEst
+            tripPickup
+            spPhoneNumber
+            tripDropOff */
 
-            }
+            $('#spNames').replaceWith(`<span class="detail" id="spNames">${currentSp.firstName + " " + currentSp.lastName}</span>`)
+            $('#spVehicleType').replaceWith(`<span class="detail" id="spVehicleType">${currentSp.vehicle.vehicleType}</span>`)
+            $('#spNumberplate').replaceWith(`<span class="detail" id="spNumberplate">${currentSp.vehicle.regNumber}</span>`)
+            $('#tripPriceEst').replaceWith(`<span class="detail" id="tripPriceEst">${10000}</span>`)
+            $('#tripPickup').replaceWith(`<span class="detail" id="tripPickup">${currentTrip.pickUp}</span>`)
+            $('#spPhoneNumber').replaceWith(`<span class="detail" id="spPhoneNumber">${currentSp.phoneNumber}</span>`)
+            $('#tripDropOff').replaceWith(`<span class="detail" id="tripDropOff">${currentTrip.destination}</span>`)
+
+            $('#showOngoingTrip').click()
         })
         .catch(err => console.error('Error with fetch request: ', err))
 
 }
 
+//let currentSp;
+//function for searching for service providers
+// let spFinder = () => {
+//     fetch(`/trips/sp-find/${currentTrip._id}`)
+
+//         .then(response => {
+//             return response.json()
+//         })
+//         .then(response => {
+//             if (response.status !== 200) {
+//                 console.log(`Status:${response.status}, No sps available`)
+//             } else {
+//                 console.log("A service provider was found", response.trip);
+//                 currentSp._id = response.trip.sp_id
+//                 showTripDetails()
+
+
+//             }
+//         })
+//         .catch(err => console.error('Error with fetch request: ', err))
+
+// }
+
+let count = 0
 let findSp = (endTripParameter) => {
     console.log("Finding sp")
-    let spSearcher = setInterval(spFinder, 3000)
 
-    if (endTripParameter === true) {
-        clearInterval(spSearcher);
-        return
-    }
-    setTimeout(() => {
-        clearInterval(spSearcher);
-        console.log("No service providers available")
-        sessionStorage.removeItem('trip')
-    }, 30000)
+    let spSearcher = setInterval(() => {
+        fetch(`/trips/sp-find/${currentTrip._id}`)
+
+            .then(response => {
+                return response.json()
+            })
+            .then(response => {
+                count += 1
+                if (count === 60) {
+                    clearInterval(spSearcher);
+                    alert("No service providers are available at the moment. Please try again later")
+                    console.log("No service providers are available at the moment. Please try again later")
+                    sessionStorage.removeItem('trip');
+                    currentTrip = {};
+                    return
+                }
+                if (response.status !== 200) {
+                    console.log(`Status:${response.status}, No sps available`)
+                } else {
+                    console.log("A service provider was found", response.trip);
+                    currentSp._id = response.trip.sp_id
+                    showTripDetails()
+                    clearInterval(spSearcher);
+
+                }
+            })
+            .catch(err => console.error('Error with fetch request: ', err))
+
+    }, 3000);
+
+
 
 };
+
+
 
 $(document).ready(() => {
     console.log("dashboard data gathering Ready");
@@ -133,4 +197,8 @@ $(document).ready(() => {
         message.messageThread.push(textMessage);
         message.message;
     });
+
+
+    // Show an ongoing trip
+
 });
