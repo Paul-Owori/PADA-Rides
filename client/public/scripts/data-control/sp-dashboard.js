@@ -63,16 +63,17 @@ $(document).ready(() => {
 
 
         const searchForClients = () => {
-            fetch('/commuters/available')
+            fetch('/trips/client-search')
 
                 .then(response => {
-                    return response.json
+                    return response.json()
                 })
                 .then(response => {
                     if (response.status !== 200) {
-                        console.log("No clients available")
+                        console.log(`Status:${response.status}, No clients available`)
                     } else {
-                        modifyClientsObject(response)
+                        console.log("clients were found");
+                        modifyClientsObject(response);
 
                     }
                 })

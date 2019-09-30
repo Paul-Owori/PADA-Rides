@@ -26,6 +26,12 @@ $(document).ready(() => {
 
     })
 
+    $('#tripNow').click(() => {
+        $('#nowRide').fadeToggle("fast", () => {
+            $('#findingRider').fadeToggle("fast")
+        })
+    })
+
     $('#acceptTrip').click(() => {
         console.log("Accepting")
 

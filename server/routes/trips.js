@@ -24,6 +24,37 @@ router.get("/", (req, res, next) => {
         });
 });
 
+
+//Help a service provider locate clients 
+router.get("/client-search", (req, res, next) => {
+    Trip.find()
+        .exec()
+        .then(trips => {
+            if (trips.length > 0) {
+                let clients = trips.filter(tripObject => {
+                    return tripObject.sp_id === undefined
+                })
+                console.log(clients)
+                res.status(200).json({
+                    status: 200,
+                    clients
+                });
+            } else {
+                res.status(404).json({
+                    status: 404,
+                    message: "No clients found"
+                });
+            }
+        })
+        .catch(err => {
+            console.log("Error getting trips at '/trips/client-search'");
+            res.status(500).json({
+                message: "Error getting trips at '/trips/client-search'"
+            });
+        });
+});
+
+
 // Handling GET requests for a single trip by ID
 router.get("/:tripID", (req, res, next) => {
     const tripID = req.params.tripID;
@@ -32,10 +63,14 @@ router.get("/:tripID", (req, res, next) => {
         .exec()
         .then(trip => {
             if (trip) {
-                res.status(200).json(trip);
+                res.status(200).json({
+                    status: 200,
+                    trip
+                });
             } else {
                 console.log("404 error, that trip does not exist");
                 res.status(404).json({
+                    status: 404,
                     message: "That trip does not exist"
                 });
             }
@@ -49,13 +84,54 @@ router.get("/:tripID", (req, res, next) => {
         });
 });
 
+
+
+// Handling GET requests for a single trip by ID
+router.get("/sp-find/:tripID", (req, res, next) => {
+    const tripID = req.params.tripID;
+
+    Trip.findById(tripID)
+        .exec()
+        .then(trip => {
+            if (trip) {
+                if (trip.sp_id === undefined) {
+                    res.status(404).json({
+                        status: 404,
+                        message: "No Sp found yet"
+                    });
+                } else {
+                    res.status(200).json({
+                        status: 200,
+                        trip
+                    });
+                }
+            } else {
+                console.log("404 error, that trip does not exist");
+                res.status(404).json({
+                    status: 404,
+                    message: "That trip does not exist"
+                });
+            }
+        })
+        .catch(err => {
+            console.log(`Error getting trip with ID ${tripID}`, err);
+            res.status(500).json({
+                message: `Error getting trip with ID ${tripID}`,
+                error: err
+            });
+        });
+});
+
+
+
+
 //Handling GET requests for all the trips associated with a particular commuter
 router.get("/commuter/:commuterID", (req, res, next) => {
     const commuterID = req.params.commuterID;
 
     Trip.find({
-        commuterID: commuterID
-    })
+            commuterID: commuterID
+        })
         .exec()
         .then(trips => {
             if (trips.length > 0) {
@@ -83,8 +159,8 @@ router.get("/sp/:spID", (req, res, next) => {
     const spID = req.params.spID;
 
     Trip.find({
-        spID: spID
-    })
+            spID: spID
+        })
         .exec()
         .then(trips => {
             if (trips.length > 0) {
@@ -119,9 +195,9 @@ router.post("/create", (req, res, next) => {
     //This saves the trip in the database
     trip.save()
         .then(result => {
+            console.log("Result==>", result)
             res.status(201).json({
-                trip: trip,
-                result: result,
+                trip: result,
                 status: 201
             });
         })
@@ -144,14 +220,11 @@ router.patch("/:tripID", (req, res, next) => {
         updateOps[ops.propName] = ops.value;
     }
 
-    Trip.updateMany(
-        {
+    Trip.updateMany({
             _id: tripID
-        },
-        {
+        }, {
             $set: updateOps
-        }
-    )
+        })
         .exec()
         .then(result => {
             res.status(200).json({
@@ -172,8 +245,8 @@ router.delete("/:tripID", (req, res, next) => {
     const tripID = req.params.tripID;
 
     Trip.deleteOne({
-        _id: tripID
-    })
+            _id: tripID
+        })
         .exec()
         .then(result => {
             console.log(`Trip with ID ${tripID} successfuly deleted`);

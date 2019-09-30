@@ -20,12 +20,12 @@ $(document).ready(() => {
         };
 
         fetch("/commuters/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(commuter)
-        })
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(commuter)
+            })
             .then(response => {
                 return response.json();
             })
