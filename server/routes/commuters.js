@@ -29,6 +29,40 @@ router.get("/", (req, res, next) => {
 });
 
 
+
+// Handling GET requests for all commuter who need a service provider
+router.get("/available", (req, res, next) => {
+    console.log("Searching for available commuters")
+
+    Commuter.find()
+        .exec()
+        .then(commuters => {
+            if (commuters.length > 0) {
+                let availableCommuters = commuters.filter(client => {
+                    return client.searchingForSp === true
+                });
+                return availableCommuters;
+
+            } else {
+                res.status(404).json({
+                    message: "No entries found"
+                })
+            }
+        })
+        .then(response => {
+            res.status(200).json(response)
+        })
+        .catch(err => {
+            console.log("Error getting available commuters at '/commuters/available'");
+            res.status(500).json({
+                message: "Error getting available commuters at '/commuters/available'"
+            })
+
+        })
+
+});
+
+
 // Handling GET requests for a single commuter by ID
 router.get("/:commuterID", (req, res, next) => {
     const commuterID = req.params.commuterID;

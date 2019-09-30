@@ -31,6 +31,10 @@ const commuterSchema = new Schema({
         type: Boolean,
         required: true
     },
+    searchingForSp: {
+        type: Boolean,
+        default: false
+    },
     impairments: {
         physical: {
             crutch: {

@@ -94,11 +94,10 @@ router.post("/login", (req, res, next) => {
 
     //let admin = new Admin();
     //receives two parameters, admin email and password
-    Sp.findOne(
-        {
+    Sp.findOne({
             email: spReceived.email
         },
-        function(err, sp) {
+        function (err, sp) {
             if (sp === null) {
                 console.log("No sp found");
                 return res.status(404).send({
@@ -113,7 +112,8 @@ router.post("/login", (req, res, next) => {
                         lastName: sp.lastName,
                         email: sp.email,
                         phoneNumber: sp.phoneNumber,
-                        currentAvailability: sp.currentAvailability
+                        currentAvailability: sp.currentAvailability,
+                        bio: sp.bio
                     });
                 } else if (!sp.validPassword(spReceived.password)) {
                     return res.status(404).send({
@@ -141,14 +141,11 @@ router.patch("/:spID", (req, res, next) => {
         updateOps[`${key}`] = value;
     }
 
-    Sp.updateMany(
-        {
+    Sp.updateMany({
             _id: spID
-        },
-        {
+        }, {
             $set: updateOps
-        }
-    )
+        })
         .exec()
         .then(result => {
             res.status(200).json({
@@ -171,8 +168,8 @@ router.delete("/:spID", (req, res, next) => {
     const spID = req.params.spID;
 
     Sp.deleteOne({
-        _id: spID
-    })
+            _id: spID
+        })
         .exec()
         .then(result => {
             console.log(`Sp with ID ${spID} successfuly deleted`);

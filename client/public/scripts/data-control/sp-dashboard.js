@@ -18,6 +18,9 @@ let modifySpObject = (key, value) => {
     sessionStorage.setItem("sp", JSON.stringify(loggedInSp));
 };
 
+let clientSearch;
+
+// After document is ready
 $(document).ready(() => {
     // Handling service provider availability
     let currentAvailability;
@@ -30,12 +33,14 @@ $(document).ready(() => {
         currentAvailability = !currentAvailability;
 
         fetch(`/sps/${loggedInSp._id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ currentAvailability })
-        })
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    currentAvailability
+                })
+            })
             .then(response => {
                 return response.json();
             })
@@ -47,6 +52,39 @@ $(document).ready(() => {
                     modifySpObject("currentAvailability", currentAvailability);
                 }
             });
+
+        // const searchForClients = () => {
+        //     console.log("Searching for clients (frontend)")
+        //     fetch('/commuters')
+        //         .then(response => {
+        //             return response.json();
+        //         })
+        //         .then(response => {
+        //             console.log("Response from client search", response)
+
+        //         });
+        // }
+
+        fetch('/sps')
+            .then(response => {
+                return response.json();
+            })
+            .then(response => {
+                console.log("Response from client search", response)
+
+            });
+
+
+
+        if (currentAvailability === true) {
+            //clientSearch = setInterval(searchForClients, 5000)
+        } else if (currentAvailability === false) {
+            console.log("Stopping client search")
+            //clearInterval(clientSearch)
+        }
+
+
+        // 
     });
 
     //Accept request, get customer details
