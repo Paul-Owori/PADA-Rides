@@ -15,7 +15,9 @@ You can view a hosted version of PADA-Rides on heroku [here](https://pada-rides.
 ## Dev Team
 
 [Aishah Kiwuka](https://github.com/aishahkiwuka)
+
 [Paul Owori](https://paul-owori.github.io/)
+
 [David Mayanja](https://github.com/DMayanja21)
 
 ## Installation
