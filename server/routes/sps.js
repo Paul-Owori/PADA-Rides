@@ -5,6 +5,7 @@ const Sp = require("../models/Sp"); //sp =  (service provider)
 
 // Handling GET requests for all sps
 router.get("/", (req, res, next) => {
+    //console.log("Getting all Sps")
     Sp.find()
         .exec()
         .then(sps => {
@@ -27,6 +28,8 @@ router.get("/", (req, res, next) => {
 // Handling GET requests for a single sp by ID
 router.get("/:spID", (req, res, next) => {
     const spID = req.params.spID;
+
+    console.log("GET REQUEST FOR", spID)
 
     Sp.findById(spID)
         .exec()
@@ -132,12 +135,12 @@ router.post("/login", (req, res, next) => {
 //Handling updating one sp
 router.patch("/:spID", (req, res, next) => {
     const spID = req.params.spID;
-    console.log("REQ BODY==>>", req.body);
+    ///console.log("REQ BODY==>>", req.body);
     const entries = Object.entries(req.body);
 
     const updateOps = {};
     for (const [key, value] of entries) {
-        console.log(`Key==> ${key} and value==>${value}`);
+        //console.log(`Key==> ${key} and value==>${value}`);
         updateOps[`${key}`] = value;
     }
 

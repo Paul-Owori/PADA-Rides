@@ -1,5 +1,7 @@
 //Before document is ready, insert the user data
 let loggedInSp = JSON.parse(sessionStorage.getItem("sp"));
+let clients = JSON.parse(sessionStorage.getItem("clients"));
+let client = JSON.parse(sessionStorage.getItem("client"));
 
 //console.log()
 
@@ -16,6 +18,11 @@ if (loggedInSp !== null) {
 let modifySpObject = (key, value) => {
     loggedInSp[`${key}`] = value;
     sessionStorage.setItem("sp", JSON.stringify(loggedInSp));
+};
+
+let modifyClientsObject = (newObject) => {
+
+    sessionStorage.setItem("clients", JSON.stringify(newObject));
 };
 
 let clientSearch;
@@ -53,34 +60,35 @@ $(document).ready(() => {
                 }
             });
 
-        // const searchForClients = () => {
-        //     console.log("Searching for clients (frontend)")
-        //     fetch('/commuters')
-        //         .then(response => {
-        //             return response.json();
-        //         })
-        //         .then(response => {
-        //             console.log("Response from client search", response)
 
-        //         });
-        // }
 
-        fetch('/sps')
-            .then(response => {
-                return response.json();
-            })
-            .then(response => {
-                console.log("Response from client search", response)
+        const searchForClients = () => {
+            fetch('/commuters/available')
 
-            });
+                .then(response => {
+                    return response.json
+                })
+                .then(response => {
+                    if (response.status !== 200) {
+                        console.log("No clients available")
+                    } else {
+                        modifyClientsObject(response)
+
+                    }
+                })
+                .catch(err => console.error('Error with fetch request: ', err))
+
+        }
+
+        //5d8db9b49c8f7e17c87ff95b
 
 
 
         if (currentAvailability === true) {
-            //clientSearch = setInterval(searchForClients, 5000)
+            clientSearch = setInterval(searchForClients, 5000)
         } else if (currentAvailability === false) {
             console.log("Stopping client search")
-            //clearInterval(clientSearch)
+            clearInterval(clientSearch)
         }
 
 

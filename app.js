@@ -25,16 +25,23 @@ app.use(fileUpload());
 //bodyParser middleware
 app.use(bodyParser.json());
 
-//Setting up landing page and default go to page for unexpected requests
-app.get("/*", (req, res) => {
-    res.sendFile(path.join(__dirname, "/client/index.html"));
-});
+
+
+app.get('/sps/all', (req, res) => {
+    console.log("Random was triggered")
+})
 
 //Setting up routes
 app.use("/commuters", commuterRoutes);
 app.use("/sps", spRoutes);
 app.use("/trips", tripRoutes);
 app.use("/messages", messageRoutes);
+
+
+//Setting up landing page and default go to page for unexpected requests
+app.get("/*", (req, res) => {
+    res.sendFile(path.join(__dirname, "/client/index.html"));
+});
 
 // db.connect()
 //     .then(() => {
@@ -48,8 +55,7 @@ app.use("/messages", messageRoutes);
 var mongoose = require("mongoose");
 
 mongoose.connect(
-    "mongodb+srv://pada-rides:trip256@cluster0-l6z9b.mongodb.net/test?retryWrites=true&w=majority",
-    {
+    "mongodb+srv://pada-rides:trip256@cluster0-l6z9b.mongodb.net/test?retryWrites=true&w=majority", {
         useNewUrlParser: true,
         useUnifiedTopology: true
     }
@@ -57,7 +63,7 @@ mongoose.connect(
 
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
-db.once("open", function() {
+db.once("open", function () {
     // we're connected!
     console.log("Database is connected");
 });

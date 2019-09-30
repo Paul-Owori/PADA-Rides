@@ -5,7 +5,8 @@ const Commuter = require("../models/Commuter");
 
 
 // Handling GET requests for all commuters
-router.get("/", (req, res, next) => {
+router.get("/", function (req, res) {
+    console.log("Attempting to get all commuters")
 
     Commuter.find()
         .exec()
@@ -41,10 +42,14 @@ router.get("/available", (req, res, next) => {
                 let availableCommuters = commuters.filter(client => {
                     return client.searchingForSp === true
                 });
-                return availableCommuters;
+                return {
+                    status: 200,
+                    availableCommuters
+                };
 
             } else {
                 res.status(404).json({
+                    status: 404,
                     message: "No entries found"
                 })
             }
@@ -55,6 +60,7 @@ router.get("/available", (req, res, next) => {
         .catch(err => {
             console.log("Error getting available commuters at '/commuters/available'");
             res.status(500).json({
+                status: 500,
                 message: "Error getting available commuters at '/commuters/available'"
             })
 
