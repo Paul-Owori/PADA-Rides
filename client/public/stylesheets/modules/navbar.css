@@ -77,17 +77,34 @@ nav {
     text-align: center;
 }
 
+.small-screen-content {
+    display: none;
+}
+
 .nav-ham:hover {
     color: rgb(200, 200, 200)
 }
 
 @media screen and (max-width: 960px) {
+    nav {
+        width: 12%;
+    }
+
     .nav-ham {
         display: initial;
     }
 
-    .nav-hidden {
+    .large-screen-content {
         display: none;
+    }
+
+    .small-screen-content {
+        display: initial;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1.5em;
+        text-align: center;
+        padding-left: 0.5rem;
     }
 
     .nav-visible {

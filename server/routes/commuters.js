@@ -44,7 +44,7 @@ router.get("/available", (req, res, next) => {
                 });
                 return {
                     status: 200,
-                    availableCommuters
+                    availableCommuters: JSON.stringify(availableCommuters)
                 };
 
             } else {

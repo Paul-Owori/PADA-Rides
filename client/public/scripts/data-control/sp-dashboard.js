@@ -21,6 +21,10 @@ let modifySpObject = (key, value) => {
     sessionStorage.setItem("sp", JSON.stringify(loggedInSp));
 };
 
+let testRun = (stringReceived) => {
+    console.log(`This is the string => ${stringReceived}`);
+};
+
 let modifyClientsObject = (newObject) => {
     let editedArray = []
     newObject.forEach(objectToCheck => {
@@ -37,6 +41,37 @@ let modifyClientsObject = (newObject) => {
     //sessionStorage.setItem("clients", newObject);
     clients = [...clients, ...editedArray];
 };
+
+let acceptClient = (tripID) => {
+    let idToAdd = {
+        sp_id: loggedInSp._id
+    }
+
+    fetch(`/trips/${tripID}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(
+                idToAdd
+            )
+        })
+        .then(response => {
+            return response.json();
+        })
+        .then(response => {
+            console.log(response)
+            alert(response)
+            if (response.status !== 200) {
+                alert(`Error accepting client, ${response.message}`);
+            } else {
+                console.log('Success message?', response);
+
+            }
+        }).catch(err => {
+            console.error("There was an error with accepting the client=>" + err)
+        });
+}
 
 let clientSearch;
 
@@ -86,8 +121,14 @@ let showAvailableClients = () => {
                 </div>
 
             </div>
-            <span class="add-trip-btn" id="acceptTrip">
+            <span class="add-trip-btn" id="${potentialTrip._id}">
                 Accept Request <i class="add-trip-plus fas fa-plus-circle"></i>
+                <script>
+                let tripID = "${potentialTrip._id}";
+                console.log(tripID);
+                $('#${potentialTrip._id}').on("click",()=>{alert("Starting accept attempt");
+                acceptClient(tripID)});
+                </script>
             </span>
         </div>`)
 

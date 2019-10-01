@@ -1,179 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <!-- Bootstrap -->
-        <link
-            rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-            crossorigin="anonymous"
-        />
 
-        <!-- Fontawesome icons -->
-        <link
-            rel="stylesheet"
-            href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-            integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
-            crossorigin="anonymous"
-        />
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
-        <!-- Custom Stylesheets -->
-        <!-- Base CSS (Must-have) -->
-        <link rel="stylesheet" href="../stylesheets/base.css" />
-        <!-- Navbar CSS (Must-have) -->
-        <link rel="stylesheet" href="../stylesheets/modules/navbar.css" />
+    <!-- Fontawesome icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
 
-        <link rel="stylesheet" href="../stylesheets/themes/sp-profile.css" />
+    <!-- Custom Stylesheets -->
+    <!-- Base CSS (Must-have) -->
+    <link rel="stylesheet" href="../stylesheets/base.css" />
+    <!-- Navbar CSS (Must-have) -->
+    <link rel="stylesheet" href="../stylesheets/modules/navbar.css" />
 
-        <title>PADA-Rides</title>
-    </head>
+    <link rel="stylesheet" href="../stylesheets/themes/sp-profile.css" />
 
-    <body>
-        <div class="all-content">
-            <!-- Nav -->
-            <nav>
-                <!-- Dropdown hamburger -->
-                <div class="nav-ham">
-                    <i class="fas fa-bars"></i>
+    <title>PADA-Rides</title>
+</head>
+
+<body>
+    <div class="all-content">
+        <!-- Nav -->
+        <nav>
+            <!-- Dropdown hamburger -->
+
+
+            <a href="/">
+                <div class="nav-header nav-hidden">
+                    <div class="trip-logo ">T</div>
+                    <span class="trip-letters large-screen-content">rip</span>
                 </div>
+            </a>
 
-                <a href="/">
-                    <div class="nav-header nav-hidden">
-                        <div class="trip-logo">T</div>
-                        <span class="trip-letters">rip</span>
-                    </div>
-                </a>
-
-                <!--
+            <!--
             <div class="navlink-container nav-hidden">
                 <a href="/" class="navlink">Home</a>
             </div>-->
 
-                <div class="navlink-container nav-hidden">
-                    <a href="./sp-dashboard.html" class="navlink">Home</a>
-                </div>
+            <div class="navlink-container nav-hidden">
+                <a href="./sp-dashboard.html" class="navlink"><span class="large-screen-content">Home</span>
+                    <i class="fas fa-home small-screen-content"></i></a>
+            </div>
 
-                <div class="navlink-container nav-hidden">
-                    <a href="./sp-profile.html" class="navlink">Profile</a>
-                </div>
+            <div class="navlink-container nav-hidden">
+                <a href="./sp-profile.html" class="navlink"><span class="large-screen-content">Profile</span> <i
+                        class="fas fa-user small-screen-content"></i></a>
+            </div>
 
-                <div class="navlink-container nav-hidden">
-                    <a href="#" id="logoutBtn" class="navlink">Logout</a>
-                </div>
-            </nav>
+            <div class="navlink-container nav-hidden">
+                <a href="#" id="logoutBtn" class="navlink"><span class="large-screen-content">Logout</span> <i
+                        class="fas fa-sign-out-alt small-screen-content"></i></a>
+            </div>
+        </nav>
 
-            <!-- Middle content -->
-            <div class="mid-content">
-                <div class="trip-card">
-                    <!-- Profile image -->
-                    <div class="details">
-                        <div id="profileContainer" class="details-left">
-                            <img
-                                id="spProfile"
-                                src="https://images.pexels.com/photos/2918519/pexels-photo-2918519.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                                alt=""
-                            />
-                        </div>
-
-                        <div class="details-right">
-                            <!-- Upload btn -->
-                            <button class="upload-photo-btn  btn btn-danger">
-                                Upload new photo
-                            </button>
-                            <!-- Delete btn -->
-                            <button class="delete-photo-btn  btn btn-secondary">
-                                Delete
-                            </button>
-                        </div>
+        <!-- Middle content -->
+        <div class="mid-content">
+            <div class="trip-card">
+                <!-- Profile image -->
+                <div class="details">
+                    <div id="profileContainer" class="details-left">
+                        <img id="spProfile"
+                            src="https://images.pexels.com/photos/2918519/pexels-photo-2918519.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                            alt="" />
                     </div>
 
-                    <!-- User details -->
-
-                    <div class="details">
-                        <div class="details-left trip-bold">
-                            First Name:
-                        </div>
-                        <div class="details-right">
-                            <input
-                                type="text"
-                                placeholder="First name"
-                                id="firstName"
-                            />
-                        </div>
-                    </div>
-
-                    <div class="details">
-                        <div class="details-left trip-bold">
-                            Last Name:
-                        </div>
-                        <div class="details-right">
-                            <input
-                                type="text"
-                                placeholder="Last name"
-                                id="lastName"
-                            />
-                        </div>
-                    </div>
-
-                    <div class="details">
-                        <div class="details-left trip-bold">
-                            Phone Number:
-                        </div>
-                        <div class="details-right">
-                            <input
-                                type="text"
-                                placeholder="Phone Number"
-                                id="phoneNumber"
-                            />
-                        </div>
-                    </div>
-
-                    <div class="details">
-                        <div class="details-left trip-bold">
-                            Email:
-                        </div>
-                        <div class="details-right">
-                            <input type="text" placeholder="Email" id="email" />
-                        </div>
-                    </div>
-
-                    <hr />
-
-                    <div>
-                        <h5 class="trip-bold">Bio:</h5>
-
-                        <textarea
-                            class="bio-text"
-                            name="bio"
-                            id="bio"
-                            cols="60"
-                            rows="7"
-                            placeholder="You can now add a bio"
-                        ></textarea>
-
-                        <button class="btn btn-success" id="saveChanges">
-                            Save changes
+                    <div class="details-right">
+                        <!-- Upload btn -->
+                        <button class="upload-photo-btn  btn btn-danger">
+                            Upload new photo
+                        </button>
+                        <!-- Delete btn -->
+                        <button class="delete-photo-btn  btn btn-secondary">
+                            Delete
                         </button>
                     </div>
                 </div>
+
+                <!-- User details -->
+
+                <div class="details">
+                    <div class="details-left trip-bold">
+                        First Name:
+                    </div>
+                    <div class="details-right">
+                        <input type="text" placeholder="First name" id="firstName" />
+                    </div>
+                </div>
+
+                <div class="details">
+                    <div class="details-left trip-bold">
+                        Last Name:
+                    </div>
+                    <div class="details-right">
+                        <input type="text" placeholder="Last name" id="lastName" />
+                    </div>
+                </div>
+
+                <div class="details">
+                    <div class="details-left trip-bold">
+                        Phone Number:
+                    </div>
+                    <div class="details-right">
+                        <input type="text" placeholder="Phone Number" id="phoneNumber" />
+                    </div>
+                </div>
+
+                <div class="details">
+                    <div class="details-left trip-bold">
+                        Email:
+                    </div>
+                    <div class="details-right">
+                        <input type="text" placeholder="Email" id="email" />
+                    </div>
+                </div>
+
+                <hr />
+
+                <div>
+                    <h5 class="trip-bold">Bio:</h5>
+
+                    <textarea class="bio-text" name="bio" id="bio" cols="60" rows="7"
+                        placeholder="You can now add a bio"></textarea>
+
+                    <button class="btn btn-success" id="saveChanges">
+                        Save changes
+                    </button>
+                </div>
             </div>
         </div>
+    </div>
 
-        <!-- JQuery -->
-        <script
-            src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-            crossorigin="anonymous"
-        ></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-        <!-- Navbar controller -->
-        <script src="../scripts/module-scripts/nav-bar.js"></script>
+    <!-- Navbar controller -->
+    <script src="../scripts/module-scripts/nav-bar.js"></script>
 
-        <script src="../scripts/animations/profiles.js"></script>
-        <script src="../scripts/data-control/sp-profile.js"></script>
-        <script src="../scripts/data-control/navbar.js"></script>
-    </body>
+    <script src="../scripts/animations/profiles.js"></script>
+    <script src="../scripts/data-control/sp-profile.js"></script>
+    <script src="../scripts/data-control/navbar.js"></script>
+</body>
+
 </html>

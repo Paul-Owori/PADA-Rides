@@ -36,9 +36,6 @@ router.get("/client-search", (req, res, next) => {
                     return tripObject.sp_id === undefined
                 });
 
-                console.log("Clients found from backend", clients);
-                console.log("Trips found from backend", trips);
-
                 if (clients.length > 0) {
                     res.status(200).json({
                         status: 200,
@@ -226,11 +223,15 @@ router.post("/create", (req, res, next) => {
 
 //Handling updating one trip
 router.patch("/:tripID", (req, res, next) => {
+    console.log("UPdate trip attempted")
     const tripID = req.params.tripID;
 
+    const entries = Object.entries(req.body);
+
     const updateOps = {};
-    for (const ops of req.body) {
-        updateOps[ops.propName] = ops.value;
+    for (const [key, value] of entries) {
+        console.log(`Key==> ${key} and value==>${value}`);
+        updateOps[`${key}`] = value;
     }
 
     Trip.updateMany({
@@ -240,6 +241,7 @@ router.patch("/:tripID", (req, res, next) => {
         })
         .exec()
         .then(result => {
+            console.log("Trip update attempt=>", result)
             res.status(200).json({
                 result,
                 message: `Success updating trip with id ${tripID}`

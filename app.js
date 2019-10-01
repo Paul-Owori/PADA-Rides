@@ -3,7 +3,9 @@ const app = express();
 const path = require("path");
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
+
 const port = process.env.PORT || 4000;
+
 
 //Importing routes
 const commuterRoutes = require("./server/routes/commuters");
@@ -27,9 +29,9 @@ app.use(bodyParser.json());
 
 
 
-app.get('/sps/all', (req, res) => {
-    console.log("Random was triggered")
-})
+// app.get('/sps/all', (req, res) => {
+//     console.log("Random was triggered")
+// })
 
 //Setting up routes
 app.use("/commuters", commuterRoutes);
@@ -54,8 +56,11 @@ app.get("/*", (req, res) => {
 //Call mongoose
 var mongoose = require("mongoose");
 
+let davidDB_URI = "mongodb+srv://pada-rides:trip256@cluster0-l6z9b.mongodb.net/test?retryWrites=true&w=majority"
+let paulDB_URI = "mongodb+srv://Paule:Paule@byarentcluster-gfhab.mongodb.net/test?retryWrites=true&w=majority"
+
 mongoose.connect(
-    "mongodb+srv://pada-rides:trip256@cluster0-l6z9b.mongodb.net/test?retryWrites=true&w=majority", {
+    davidDB_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     }
