@@ -40,7 +40,6 @@ $(document).ready(() => {
     })
 
     $('#acceptTrip').click(() => {
-        console.log("Accepting")
 
         $('#clientsCard').fadeToggle("fast", () => {
             console.log("revealing")

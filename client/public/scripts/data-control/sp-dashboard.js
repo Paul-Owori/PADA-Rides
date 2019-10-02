@@ -3,6 +3,10 @@ let loggedInSp = JSON.parse(sessionStorage.getItem("sp"));
 let clients = [];
 let currentClient = JSON.parse(sessionStorage.getItem("currentClient"));
 let clientChosen = false;
+let chosenTrip = {};
+let potentialTrips = [];
+let potentialClients = [];
+let chosenClient = {}
 
 //console.log()
 
@@ -21,16 +25,12 @@ let modifySpObject = (key, value) => {
     sessionStorage.setItem("sp", JSON.stringify(loggedInSp));
 };
 
-let testRun = (stringReceived) => {
-    console.log(`This is the string => ${stringReceived}`);
-};
-
-let modifyClientsObject = (newObject) => {
+let modifyPotentialTrips = (newObject) => {
     let editedArray = []
     newObject.forEach(objectToCheck => {
 
-        let repeatedObject = clients.filter(clientObject => {
-            return clientObject._id === objectToCheck._id
+        let repeatedObject = potentialTrips.filter(tripObject => {
+            return tripObject._id === objectToCheck._id
         });
 
         if (repeatedObject.length === 0) {
@@ -38,11 +38,42 @@ let modifyClientsObject = (newObject) => {
         }
     })
 
-    //sessionStorage.setItem("clients", newObject);
-    clients = [...clients, ...editedArray];
+    //sessionStorage.setItem("potentialTrips", newObject); clients
+    potentialTrips = [...potentialTrips, ...editedArray];
 };
 
-let acceptClient = (tripID) => {
+let setChosenTrip = (tripID) => {
+
+    // Retrieve trip details 
+    chosenTrip = potentialTrips.filter(tripObject => {
+        return tripObject._id === tripID
+    })[0];
+
+    // Retrieve client details
+    chosenClient = potentialClients.filter(clientObject => {
+        return clientObject._id === chosenTrip.commuter_id
+    })[0];
+
+
+    //Replace relevant fields in ongoing trip-card
+    $('#clientName').html(`${chosenClient.firstName + " " + chosenClient.lastName }`);
+    $('#clientNumber').html(`${chosenClient.phoneNumber}`);
+    $('#clientDropOff').html(`${chosenTrip.destination}`);
+    $('#clientPickUp').html(`${chosenTrip.pickUp}`);
+    $('#tripPriceEst').html(`${10000}`);
+    $('#tripDate').html(`${new Date(chosenTrip.dateOfTrip).toDateString()}`);
+
+
+    //Toggle visibility of ongoing trip
+    $('#clientsCard').fadeToggle("fast", () => {
+        $('#directionsCard').fadeToggle("fast")
+    });
+    $("#availableToggle").click();
+
+}
+
+let acceptClient = (tripID, callBack) => {
+    //alert("Starting accept attempt");
     let idToAdd = {
         sp_id: loggedInSp._id
     }
@@ -60,15 +91,25 @@ let acceptClient = (tripID) => {
             return response.json();
         })
         .then(response => {
-            console.log(response)
-            alert(response)
+            //console.log(response)
+            //alert(response)
             if (response.status !== 200) {
-                alert(`Error accepting client, ${response.message}`);
+                //alert(`Error accepting client, ${response.message}`);
             } else {
-                console.log('Success message?', response);
+                callBack()
+                //showChosenTrip();
 
             }
-        }).catch(err => {
+        }).then((response) => {
+            //console.log("Starting fade");
+
+            //Show ongoing trip details
+
+
+            //Stop searching for clients
+
+        })
+        .catch(err => {
             console.error("There was an error with accepting the client=>" + err)
         });
 }
@@ -79,8 +120,8 @@ let showAvailableClients = () => {
     console.log("Showing clients")
     $('#fillerClient').remove()
     console.log("Entered the function")
-    clients.forEach(potentialTrip => {
-
+    potentialTrips.forEach(potentialTrip => {
+        //clients
         if (!potentialTrip.included) {
             fetch(`/commuters/${potentialTrip.commuter_id}`)
 
@@ -89,48 +130,56 @@ let showAvailableClients = () => {
                     return response.json()
                 })
                 .then(potentialClient => {
-                    console.log("Appending work", potentialClient)
+                    //console.log("Appending work", potentialClient)
 
+                    potentialClients.push(potentialClient)
 
                     $('#clientDisplay').append(`
-        <!-- Client req-sample -->
-        <div class="client-req-wrapper">
-            <div class="client-req">
-                <div class="client-img">
+                    <!-- Client req-sample -->
+                    <div class="client-req-wrapper">
+                        <div class="client-req">
+                        
+                            <div class="client-img">
 
-                    <img class="commuter-profile"
-                        src="https://images.pexels.com/photos/2918519/pexels-photo-2918519.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                        alt="">
-                </div>
-                <div class="client-details trip-red-color">
-                    <div class="detail-wrapper"><span class="detail-label">Name:</span><span
-                            class="detail">${potentialClient.firstName + " " + potentialClient.lastName }
-                        </span></div>
-                    <div class="detail-wrapper"><span class="detail-label">Pickup:</span><span
-                            class="detail">${potentialTrip.pickUp}</span></div>
-                    <div class="detail-wrapper"><span class="detail-label">Dropoff:</span><span
-                            class="detail">${potentialTrip.destination}
-                        </span></div>
-                    <div class="detail-wrapper"><span class="detail-label">Price est:</span><span
-                            class="detail">${10000}
-                            UGX</span></div>
-                    <div class="detail-wrapper"><span class="detail-label">Date:</span><span
-                            class="detail">${potentialTrip.dateOfTrip}
-                        </span></div>
+                                <img class="commuter-profile"
+                                    src="https://images.pexels.com/photos/2918519/pexels-photo-2918519.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                                    alt="">
+                            </div>
 
-                </div>
+                            <div class="client-details trip-red-color">
+                                <div class="detail-wrapper"><span class="detail-label">Name:</span><span
+                                        class="detail">${potentialClient.firstName + " " + potentialClient.lastName }
+                                    </span></div>
+                                <div class="detail-wrapper"><span class="detail-label">Pickup:</span><span
+                                        class="detail">${potentialTrip.pickUp}</span></div>
+                                <div class="detail-wrapper"><span class="detail-label">Dropoff:</span><span
+                                        class="detail">${potentialTrip.destination}
+                                    </span></div>
+                                <div class="detail-wrapper"><span class="detail-label">Price est:</span><span
+                                        class="detail">${10000}
+                                        UGX</span></div>
+                                <div class="detail-wrapper"><span class="detail-label">Date:</span><span
+                                        class="detail">${  new Date(potentialTrip.dateOfTrip).toDateString()}
+                                    </span></div>
 
-            </div>
-            <span class="add-trip-btn" id="${potentialTrip._id}">
-                Accept Request <i class="add-trip-plus fas fa-plus-circle"></i>
-                <script>
-                let tripID = "${potentialTrip._id}";
-                console.log(tripID);
-                $('#${potentialTrip._id}').on("click",()=>{alert("Starting accept attempt");
-                acceptClient(tripID)});
-                </script>
-            </span>
-        </div>`)
+                            </div>
+
+                        </div>
+                        <span class="add-trip-btn accept-trip-now" id="${potentialTrip._id}">
+                            Accept Request <i class="add-trip-plus fas fa-plus-circle"></i>
+                            <script>
+                            
+                            $('#${potentialTrip._id}').on("click",()=>{
+                                
+                                acceptClient("${potentialTrip._id}", ()=>{
+                                    setChosenTrip("${potentialTrip._id}");
+                                    });
+                                });
+                                
+
+                            </script>
+                        </span>
+                    </div>`)
 
                 })
                 .catch(err => console.error('Error with fetch request: ', err))
@@ -142,6 +191,19 @@ let showAvailableClients = () => {
         }
         potentialTrip.included = "true";
     })
+}
+
+
+let showChosenTrip = () => {
+
+    fetch(`commuters/${chosenTrip.commuter_id}`)
+        .then((response) => {
+
+        }).then((response) => {
+
+        })
+
+
 }
 
 // After document is ready
@@ -188,8 +250,8 @@ $(document).ready(() => {
 
             clientSearch = setInterval(() => {
                 //count += 1
-                if (clientChosen === true) {
-                    console.log("stopping client search")
+                if (currentAvailability === false) {
+                    console.log("Stopping client search")
                     clearInterval(clientSearch)
                 } else {
                     fetch('/trips/client-search')
@@ -203,7 +265,7 @@ $(document).ready(() => {
                                 console.log(`Status:${response.status}, No clients available`)
                             } else {
                                 console.log("clients were found", response);
-                                modifyClientsObject(response.clients);
+                                modifyPotentialTrips(response.clients);
                                 showAvailableClients();
 
 
@@ -214,9 +276,6 @@ $(document).ready(() => {
                 }
 
             }, 5000)
-        } else if (currentAvailability === false) {
-            console.log("Stopping client search")
-            clearInterval(clientSearch)
         }
 
 
@@ -224,10 +283,7 @@ $(document).ready(() => {
     });
 
     //Accept request, get customer details
-    $('#acceptTrip').click(() => {
-        clientChosen = true;
-        let tripId = "";
-    })
+
 
     //Handling starting trip
     // $('#startTrip').click(() => {

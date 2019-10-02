@@ -243,6 +243,7 @@ router.patch("/:tripID", (req, res, next) => {
         .then(result => {
             console.log("Trip update attempt=>", result)
             res.status(200).json({
+                status: 200,
                 result,
                 message: `Success updating trip with id ${tripID}`
             });

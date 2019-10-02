@@ -90,6 +90,15 @@ nav {
         width: 12%;
     }
 
+    .navlink {
+        text-align: center;
+    }
+
+    .trip-logo {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .nav-ham {
         display: initial;
     }
@@ -98,13 +107,13 @@ nav {
         display: none;
     }
 
+    /* navlink */
     .small-screen-content {
         display: initial;
         margin-left: auto;
         margin-right: auto;
         font-size: 1.5em;
         text-align: center;
-        padding-left: 0.5rem;
     }
 
     .nav-visible {

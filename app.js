@@ -60,7 +60,7 @@ let davidDB_URI = "mongodb+srv://pada-rides:trip256@cluster0-l6z9b.mongodb.net/t
 let paulDB_URI = "mongodb+srv://Paule:Paule@byarentcluster-gfhab.mongodb.net/test?retryWrites=true&w=majority"
 
 mongoose.connect(
-    davidDB_URI, {
+    paulDB_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     }
