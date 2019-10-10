@@ -14,17 +14,159 @@
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
 
     <!-- Custom Stylesheets -->
+    <!-- Base CSS (Must-have) -->
+    <link rel="stylesheet" href="../stylesheets/base.css">
+
+    <link rel="stylesheet" href="../stylesheets/themes/sp-login.css">
 
 
-    <title>PADA-Rides</title>
+    <title>Login</title>
 </head>
 
 <body>
-    <!-- Rider Login page -->
+    <!--Rider Login page -->
+    <div id="container">
 
+        <!-- Logo display -->
+        <div id="sideBar" class="trip-red-background">
+            <a href="/">
+                <div id="logo">
+                    <div class="trip-logo trip-bold">T</div>
+                    <span class="trip-letters trip-bold">rip</span>
+                </div>
+            </a>
+
+        </div>
+        <div id="content">
+
+            <!-- Login Section -->
+            <div id="logIn">
+                <div id="loginCard" class="trip-card trip-gray-background">
+
+                    <div class="card-header">
+
+
+                        <h2>Login</h2>
+                        <p>Don't have an account? <span class="open-signup trip-bold trip-red-color">Signup here.</span>
+                        </p>
+                    </div>
+
+                    <!-- Login form -->
+                    <form id="access">
+
+                        <input type="text" name="email" id="email" placeholder="Your Email Address..."><br>
+
+                        <input type="password" name="password" id="password" placeholder="Your Password..."><br>
+
+                        <!-- Form control buttons -->
+
+                        <div class=button-container>
+
+                            <button id="spSignin" type="submit" class="btn-success">Signin</button>
+                            <button id="clear" type="reset">Cancel</button>
+                        </div>
+                        <a href="#">Forgot Password?</a>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Signup Section -->
+            <div id="signUp">
+                <div id="signinCard" class="trip-card trip-gray-background">
+
+                    <div class="card-header">
+
+
+                        <h2>Sign Up</h2>
+                        <p>Already have an account? <span class="open-login trip-bold trip-red-color">login here.</span>
+                        </p>
+                    </div>
+
+                    <!-- Registration form -->
+                    <form id="join">
+                        <div class="form-group-row">
+
+                            <input type="text" id="firstName" placeholder="Your First Name...">
+                        </div>
+                        <div class="form-group-row">
+
+                            <input type="text" id="lastName" placeholder="Your Last Name...">
+                        </div>
+                        <div class="form-group-row">
+
+                            <input type="text" id="emailAddress" placeholder="Your Email Address...">
+                        </div>
+
+                        <div class="form-group-row">
+
+                            <input type="text" id="permitNumber" placeholder="Your permit number...">
+                        </div>
+
+                        <div class="form-group-row">
+
+                            <input type="text" id="phoneNumber" placeholder="Your Phone number...">
+                        </div>
+
+                        <div class="form-group-row">
+
+                            <input type="text" id="vehicleReg" placeholder="Your vehicle registration number...">
+                        </div>
+                        <div class="form-group-row">
+
+                            <input type="password" id="password1" placeholder="Input password">
+                        </div>
+                        <div class="form-group-row">
+
+                            <input type="password" id="password2" placeholder="Confirm password">
+                        </div>
+
+                        <div class="form-group-row select-container">
+
+                            <label for="vehicleType">Vehicle Type:</label>
+                            <select id="vehicleType" name="vehicleType">
+                                <option>Standard Car (4-5passengers)</option>
+                                <option>Large Car (8+ passengers)</option>
+                                <option>Modified Car (Equipped with ramp)</option>
+                                <option>Standard Motorcycle (Two-Wheeler)</option>
+                                <option>Modified Motorcycle (3+ Wheels)</option>
+
+                            </select>
+                        </div>
+
+                        Do you have any training with caring for P.W.D's? <br />
+
+                        <div class="trained-check-wrapper">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" name="trainedCheck" class="custom-control-input" id="trainedFalse"
+                                    value="false" />
+                                <label class="custom-control-label" for="trainedFalse">No</label>
+                            </div>
+
+                            <div class="custom-control custom-radio custom-control-inline no-padding">
+                                <input type="radio" name="trainedCheck" class="custom-control-input" id="trainedTrue"
+                                    value="true" />
+                                <label class="custom-control-label" for="trainedTrue">Yes</label>
+                            </div>
+                        </div>
+
+                        <!-- Form control buttons -->
+                        <div class="button-container">
+
+                            <button id="create" type="submit" class="btn-primary">Create Account</button>
+                            <button id="cancel" type="reset" class="btn-danger">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script src="../scripts/animations/sp-login.js"></script>
+    <script src="../scripts/data-control/sp-login.js"></script>
+    <script src="../scripts/data-control/navbar.js"></script>
 </body>
 
 </html>

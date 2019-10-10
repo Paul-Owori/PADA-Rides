@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Fontawesome icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
+
+    <!-- Custom Stylesheets -->
+    <!-- Base CSS (Must-have) -->
+    <link rel="stylesheet" href="../stylesheets/base.css">
+    <!-- Navbar CSS (Must-have) -->
+    <link rel="stylesheet" href="../stylesheets/modules/navbar.css">
+    <!-- Commuter-theme css -->
+    <link rel="stylesheet" href="../stylesheets/themes/commuter-dashboard.css">
+
+
+    <title>PADA-Rides</title>
+</head>
+
+<body>
+    <div class="all-content">
+        <!-- Nav -->
+        <nav>
+            <!-- Dropdown hamburger -->
+            <a href="/">
+                <div class="nav-header nav-hidden">
+                    <div class="trip-logo ">T</div>
+                    <span class="trip-letters large-screen-content">rip</span>
+                </div>
+            </a>
+
+            <!--
+            <div class="navlink-container nav-hidden">
+                <a href="/" class="navlink">Home</a>
+            </div>-->
+
+            <div class="navlink-container nav-hidden">
+                <a href="./commuter-dashboard.html" class="navlink"> <span class="large-screen-content">Home</span>
+                    <i class="fas fa-home small-screen-content"></i></a>
+            </div>
+
+            <div class="navlink-container nav-hidden">
+                <a href="./commuter-profile.html" class="navlink"> <span class="large-screen-content">Profile</span> <i
+                        class="fas fa-user small-screen-content"></i></a>
+            </div>
+
+            <div class="navlink-container nav-hidden">
+                <a href="#" class="navlink" id="logoutBtn"><span class="large-screen-content">Logout</span> <i
+                        class="fas fa-sign-out-alt small-screen-content"></i></a>
+            </div>
+
+        </nav>
+
+        <!-- Middle content -->
+        <div class="mid-content trip-gray-background">
+
+            <!-- Add a new ride now -->
+            <div class="welcome-header center-content">
+                <h2 class="trip-red-color center-content" id="pageHeader">Welcome commuterName! </h2>
+            </div>
+            <div class="trip-flexbox">
+
+                <div class="card-container" id="nowRide">
+                    <!-- Card header -->
+                    <h4 class="trip-red-color card-header center-content">Find a ride now.</h4>
+
+
+                    <h6 class="card-sub-header center-content">Or <span id="openAdvance"
+                            class="open-alt trip-red-color">Book a ride in
+                            advance</span> </h6>
+
+
+                    <div class="trip-card map-wrapper">
+                        <!-- Map will appear here -->
+                        <div class="map-container"></div>
+
+
+                        <div class="under-map">
+                            <!--Location input / search  -->
+                            <div class="location-input">
+                                <input type="text" class="pick-up" placeholder="Pickup Location" id="pickUp">
+                                <span class="search-icon"><i class="fas fa-search-location "></i> </span>
+
+                            </div>
+
+                            <div class="location-input">
+                                <input type="text" class="pick-up" placeholder="Destination" id="destination">
+                                <span class="search-icon"><i class="fas fa-search-location "></i> </span>
+
+                            </div>
+                            <!-- Fields for PWD's to fill -->
+
+                            <span class="add-trip-btn" id="tripNow">
+                                Find a ride now <i class="add-trip-plus fas fa-plus-circle"></i>
+                            </span>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- Book a ride in advance -->
+
+                <div class="card-container" id="advanceRide">
+                    <!-- Card header -->
+                    <h4 class="trip-red-color card-header center-content">Book a ride in advance.</h4>
+
+                    <h6 class="card-sub-header center-content">Or <span id="openNow" class="open-alt trip-red-color">Get
+                            a ride
+                            now.</span> </h6>
+
+                    <div class="trip-card map-wrapper">
+                        <!-- Map will appear here -->
+                        <div class="map-container"></div>
+
+
+                        <div class="under-map">
+                            <!--Location input / search  -->
+                            <div class="location-input">
+                                <input type="text" class="pick-up" placeholder="Pickup Location" id="pickUpAdvance">
+                                <span class="search-icon"><i class="fas fa-search-location "></i> </span>
+
+                            </div>
+
+                            <div class="location-input">
+                                <input type="text" class="pick-up" placeholder="Destination" id="destinationAdvance">
+                                <span class="search-icon"><i class="fas fa-search-location "></i> </span>
+
+                            </div>
+
+                            <!-- Fields for Date, Time -->
+                            <form class="pwd-fields">
+                                <h6 class="trip-red-color pwd-header">Choose a date and time.</h6>
+
+                                <div class="date-time-container">
+
+                                    <h6 class="date-label">
+                                        Date:
+                                    </h6>
+
+                                    <div class="date-wrapper">
+                                        <input class="date" id="dateDay" type="number" placeholder="DD"> <input
+                                            class="date" type="number" placeholder="MM" id="dateMonth"> <span
+                                            class="date bold-font">2019</span>
+                                    </div>
+                                </div>
+
+                                <div class="date-time-container">
+
+                                    <h6 class="date-label">
+                                        Time:
+                                    </h6>
+
+                                    <div class="date-wrapper">
+                                        <input class="date" id="dateHrs" type="number" placeholder="Hrs"> <input
+                                            class="date" type="number" placeholder="Mins" id="dateMins">
+                                    </div>
+
+                                </div>
+                            </form>
+                            <span class="add-trip-btn" id="tripBook">
+                                Find a ride. <i class="add-trip-plus fas fa-plus-circle"></i>
+                            </span>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="card-container" id="findingRider">
+                    <!-- Card header -->
+                    <h4 class="trip-red-color card-header center-content">Finding a rider</h4>
+
+                    <h6 class="card-sub-header center-content">Please wait...</h6>
+                    <div class="trip-card finding-rider center-content">
+
+                        <div class="loader-container center-content">
+
+                            <div class="spinner-border text-danger center-content" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Content at the end / right -->
+        <div class="right-content">
+
+            <!-- Invisible button to toggle visibility of ongoing trip -->
+            <button id="showOngoingTrip"></button>
+
+            <!-- Ongoing trip card -->
+            <div class="trip-card ongoing-trip">
+                <h6 class="trip-red-color">Ongoing trip</h6>
+
+                <!-- Driver profile image -->
+                <div id="profileContainer">
+
+                    <img id="spProfile"
+                        src="https://images.pexels.com/photos/2918519/pexels-photo-2918519.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                        alt="">
+                </div>
+
+
+                <!-- Trip details -->
+
+                <div class="trip-red-background trip-details">
+                    <div class="detail-wrapper"><span class="detail-label">Name:</span><span class="detail"
+                            id="spNames">George</span></div>
+                    <div class="detail-wrapper"><span class="detail-label">Vehicle-type:</span><span class="detail"
+                            id="spVehicleType">Toyota Hiace</span>
+                    </div>
+                    <div class="detail-wrapper"><span class="detail-label">Number-Plate:</span><span class="detail"
+                            id="spNumberplate">UAB 123F</span></div>
+                    <div class="detail-wrapper"><span class="detail-label">Price est:</span><span class="detail"><span
+                                class="tripPriceEst">10000</span>
+                            UGX</span></div>
+                    <div class="detail-wrapper"><span class="detail-label">Pickup:</span><span class="detail"
+                            id="tripPickup">Soliz
+                            House</span></div>
+                    <div class="detail-wrapper"><span class="detail-label">Dropoff:</span><span class="detail"
+                            id="tripDropOff">Tuskys
+                            Ntinda</span></div>
+                    <div class="detail-wrapper"><span class="detail-label">Phone Number:</span><span class="detail"
+                            id="spPhoneNumber">
+                            0772123456</span></div>
+
+                </div>
+                <div class="dropdown-container">
+
+                    <span class="dropdown-btns" id="ongoingDropdown"><i class="fas fa-caret-up drop-up-btn"></i><i
+                            class="fas fa-caret-down drop-down-btn"></i></span>
+                </div>
+
+            </div>
+
+            <!-- Text imterface -->
+            <div class="trip-card text-interface">
+                <h6 class="trip-red-color">Text interface</h6>
+
+                <!-- Text input box and messages -->
+                <div class="trip-red-background text-box">
+                    <div class="msg-display">
+                        <div class="user-msg"><span class="user-msg-box">Hello</span></div>
+                        <div class="sp-msg"><span class="sp-msg-box">Hello there</span></div>
+                    </div>
+                    <form class="input-msg">
+                        <input id="inputMsg" type="text" placeholder="Write a message..."> <span class="send-btn"><i
+                                class="fas fa-paper-plane" id="sendText"></i></span>
+                    </form>
+
+                </div>
+                <div class="dropdown-container">
+
+                    <span class="dropdown-btns" id="textDropdown"><i class="fas fa-caret-up drop-up-btn"></i><i
+                            class="fas fa-caret-down drop-down-btn"></i></span>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <!-- Navbar controller -->
+    <script src="../scripts/module-scripts/nav-bar.js"></script>
+
+    <script src="../scripts/animations/dashboards.js"></script>
+    <script src="../scripts/data-control/commuter-dashboard.js"></script>
+    <script src="../scripts/data-control/navbar.js"></script>
+
+</body>
+
+</html>

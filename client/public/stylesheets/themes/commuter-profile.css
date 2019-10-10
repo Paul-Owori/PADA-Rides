@@ -1,0 +1,63 @@
+.trip-card {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#profileContainer {
+
+    overflow: hidden;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    text-align: center;
+    align-items: center;
+    box-shadow: 0.6px 0.4px 1px 0.4px #686868;
+    margin: 0.8rem auto 0.8rem auto;
+
+}
+
+#profileContainer img {
+    height: 100%;
+    width: auto
+}
+
+.trip-details {
+    display: none;
+}
+
+.details {
+    display: flex;
+    /* border: solid 2px blue; */
+    align-items: center
+}
+
+.details-left {
+    text-align: left;
+    flex: 2.4;
+    max-width: 140px;
+}
+
+.details-right {
+    flex: 4;
+    text-align: left;
+    /* border: 2px solid blue; */
+    padding-left: 1rem;
+}
+
+.bio-text {
+    text-align: justify;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-radius: 5px;
+}
+
+button {
+    margin: 0.5rem;
+}
+
+
+input {
+    width: 100%;
+    margin: 0.5rem 0rem 0.5rem 0rem;
+}

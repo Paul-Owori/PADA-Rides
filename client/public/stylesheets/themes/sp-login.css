@@ -1,0 +1,154 @@
+/* Web layout */
+/* #container {
+  display: flex;
+  flex-direction: column;
+} */
+
+#sideBar {
+  padding: 0.5rem;
+  position: fixed;
+  width: 100%;
+  box-shadow: 1px 2px 5px 0.3px #b9b9b9;
+
+}
+
+#logo {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.trip-letters {
+  color: #fff;
+  padding-left: 0.1rem;
+  font-size: 1.2em;
+}
+
+#content {
+  display: flex;
+  padding: 0.5rem;
+  padding-top: 5rem;
+}
+
+#logIn,
+#signUp {
+  flex: 6;
+
+}
+
+#signUp {
+  display: none;
+}
+
+.open-signup,
+.open-login {
+  cursor: pointer;
+}
+
+.open-signup:hover,
+.open-login:hover {
+  color: #df182c
+}
+
+.trip-card {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  padding: 1rem 2.5rem 1rem 2.5rem;
+}
+
+select {
+  padding: 0.5rem;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.select-container {
+  display: flex;
+  align-items: center;
+  padding: none;
+  display: block;
+  width: 100%;
+  margin: none;
+}
+
+.select-container label,
+.select-container select {
+  flex: 6;
+  padding: none;
+  text-align: left;
+}
+
+.card-header {
+  text-align: center;
+  background: none;
+}
+
+.button-container {
+  display: flex;
+
+}
+
+.button-container button {
+  flex: 6
+}
+
+.trained-check-wrapper {
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.trained-check-wrapper div {
+  flex: 6;
+}
+
+/* For larger displays*/
+/* @media (min-width: 960px) {
+  #logIn {
+    padding: 15% 0
+  }
+
+  #loginCard {
+    padding: 15% 0;
+  }
+} */
+
+/* Mobile Layout */
+@media (max-width: 960px) {
+
+  .select-container,
+  .button-container {
+    flex-direction: column;
+  }
+
+  #content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #logIn {
+    flex: 6;
+  }
+
+  #signUp {
+    flex: 6;
+  }
+}
+
+/* Special Features*/
+label {
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  margin: 0.2rem 0rem 1rem 0rem;
+}
+
+button {
+  margin: 0.5rem;
+}

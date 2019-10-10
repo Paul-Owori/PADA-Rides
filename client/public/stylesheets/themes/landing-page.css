@@ -1,0 +1,174 @@
+/*For web layout*/
+#container {
+	display: flex;
+}
+
+/*
+#carousel {
+	flex: 4;
+}
+*/
+
+#details {
+	flex: 8;
+}
+
+.trip-card {
+	text-align: center;
+	max-width: 400px;
+	margin: 3rem auto 3rem auto
+}
+
+.logo-container {
+	display: flex;
+	align-items: center;
+	margin: 0rem auto 1.2rem auto;
+	margin-top: 0rem;
+	padding: 0.3rem 0rem 0.3rem 0.2rem;
+	max-width: 270px;
+	font-weight: bold;
+
+
+}
+
+.logo-container .trip-letters {
+	padding-left: 0.3rem;
+	flex: 6;
+}
+
+.logo-container .trip-homepage-logo {
+	flex: 6;
+}
+
+.trip-letters {
+	font-size: 1.8em;
+	padding-left: 0.1rem;
+	cursor: pointer;
+}
+
+.trip-homepage-logo {
+	color: #dc3545;
+	background: #fff;
+	border: 3px solid #dc3545;
+	border-radius: 50%;
+	width: 1.2em;
+	height: 1.2em;
+	font-size: 2em;
+	text-align: center;
+	margin: 0rem;
+}
+
+.trip-homepage-logo:hover {
+	color: #fff;
+	background: #dc3545;
+	border: 3px solid #fff;
+	cursor: pointer;
+}
+
+/* For background image change*/
+body{
+	padding: 0%;
+	margin: 0%;
+}
+#container{
+	position: absolute;
+	left: 0;
+	top: 0; 
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	width: 100vw;
+	height: 100vh;
+	animation: back 20s infinite;
+}
+@keyframes back {
+	0%,100%{
+		background-image: url("/assets/Trip_Safety.jpeg");
+	}
+	25%{
+		background-image: url("/assets/Trip_Comfortable.jpg");
+	}
+	50%{
+		background-image: url("/assets/Trip_Reliable.jpeg");
+	}
+	75%{
+		background-image: url("/assets/Trip_Fast.jpeg");
+	}
+	/*
+	100%{
+		background-image: url("/assets/Trip Convenient.jpeg ");
+	}*/
+}
+
+
+/* .logo-container:hover {
+	background: #fff;
+}
+
+.logo-container:hover .trip-letters {
+	color: #dc3545;
+}
+
+.logo-container:hover .trip-homepage-logo {
+	color: #fff;
+	background: #dc3545;
+	border: 1.5px solid #fff;
+	cursor: pointer;
+} */
+
+/* #logo{
+	display: flex;
+	justify-content: center;
+	align-content: center;
+} */
+
+/*For larger displays*/
+
+.btn-container {
+	margin-top: 2rem
+}
+
+.btn-container a {
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+
+}
+
+.btn-container a button {
+	font-weight: bold;
+}
+
+.btn-container a:hover {
+	text-decoration: none;
+	outline: none;
+
+}
+
+
+@media (min-width: 960px) {
+	#details {
+		padding: 10%;
+	}
+}
+
+/*For mobile layout*/
+@media (max-width: 960px) {
+	#container {
+		display: flex;
+		flex-direction: column-reverse;
+	}
+
+	#details {
+		flex: 6;
+	}
+
+	#carousel {
+		flex: 6;
+	}
+
+	.trip-card {
+
+		max-width: 360px;
+
+	}
+}

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Fontawesome icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
+
+    <!-- Custom Stylesheets -->
+    <!-- Base CSS (Must-have) -->
+    <link rel="stylesheet" href="../stylesheets/base.css">
+    <!-- Navbar CSS (Must-have) -->
+    <link rel="stylesheet" href="../stylesheets/modules/navbar.css">
+    <!-- Commuter-theme css -->
+    <link rel="stylesheet" href="../stylesheets/themes/sp-dashboard.css">
+
+
+    <title>PADA-Rides</title>
+</head>
+
+<body>
+    <div class="all-content">
+        <!-- Nav -->
+        <nav>
+            <!-- Dropdown hamburger -->
+            <a href="/">
+                <div class="nav-header nav-hidden">
+                    <div class="trip-logo ">T</div>
+                    <span class="trip-letters large-screen-content">rip</span>
+                </div>
+
+            </a>
+
+            <!--
+            <div class="navlink-container nav-hidden">
+                <a href="/" class="navlink">Home</a>
+            </div>
+        -->
+
+            <div class="navlink-container nav-hidden">
+                <a href="./sp-dashboard.html" class="navlink"><span class="large-screen-content">Home</span>
+                    <i class="fas fa-home small-screen-content"></i></a>
+            </div>
+
+            <div class="navlink-container nav-hidden">
+                <a href="./sp-profile.html" class="navlink"><span class="large-screen-content">Profile</span> <i
+                        class="fas fa-user small-screen-content"></i></a>
+            </div>
+
+            <div class="navlink-container nav-hidden">
+                <a href="#" id="logoutBtn" class="navlink"><span class="large-screen-content">Logout</span> <i
+                        class="fas fa-sign-out-alt small-screen-content"></i></a>
+            </div>
+
+        </nav>
+
+        <!-- Middle content -->
+        <div class="mid-content trip-gray-background">
+
+            <!-- View Available rides -->
+            <div class="welcome-header">
+                <h2 class="trip-red-color" id="pageHeader">Welcome spName! </h2>
+            </div>
+            <div class="trip-flexbox">
+
+                <div class="card-container">
+
+                    <div id="clientsCard">
+
+                        <!-- Card header -->
+                        <h4 class="trip-red-color card-header clients-card">Available clients.</h4>
+
+                        <div class="trip-card clients-card " id="clientDisplay">
+                            <!-- Client requests will appear dynamically here -->
+
+                            <!-- Client req-sample -->
+                            <div class="client-req-wrapper" id="fillerClient">
+                                <div class="client-req">
+                                    <div class="client-img">
+
+                                        <img class="commuter-profile"
+                                            src="https://images.pexels.com/photos/2918519/pexels-photo-2918519.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                                            alt="">
+                                    </div>
+                                    <div class="client-details trip-red-color">
+                                        <div class="detail-wrapper"><span class="detail-label">Name:</span><span
+                                                class="detail">N/A
+                                            </span></div>
+                                        <div class="detail-wrapper"><span class="detail-label">Pickup:</span><span
+                                                class="detail">N/A</span></div>
+                                        <div class="detail-wrapper"><span class="detail-label">Dropoff:</span><span
+                                                class="detail">N/A
+                                            </span></div>
+                                        <div class="detail-wrapper"><span class="detail-label">Price est:</span><span
+                                                class="detail">N/A
+                                                UGX</span></div>
+                                        <div class="detail-wrapper"><span class="detail-label">Date:</span><span
+                                                class="detail">N/A
+                                            </span></div>
+
+                                    </div>
+
+                                </div>
+                                <span class="add-trip-btn" id="acceptTrip">
+                                    Accept Request <i class="add-trip-plus fas fa-plus-circle"></i>
+                                </span>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+                    <div id="directionsCard">
+
+                        <!-- Map Card header -->
+                        <h4 class="trip-red-color card-header directions-card">Directions to your client.</h4>
+
+                        <div class="trip-card map-wrapper directions-card">
+                            <!-- Map will appear here -->
+                            <div class="map-container"></div>
+
+                            <div class="map-btns">
+                                <span class="add-trip-btn" id="cancelTrip">
+                                    Cancel Request <i class="fas fa-times-circle"></i>
+                                </span>
+                                <span class="add-trip-btn" id="arrivedTrip">
+                                    Arrived <i class="fas fa-check-circle"></i>
+                                </span>
+                                <span class="add-trip-btn" id="startTrip">
+                                    Start Trip <i class="fas fa-hourglass-start"></i>
+                                </span>
+                                <span class="add-trip-btn" id="endTrip">
+                                    End Trip <i class="fas fa-hourglass-end"></i>
+                                </span>
+
+                            </div>
+
+                            <div class="client-details trip-red-color">
+                                <div class="detail-wrapper"><span class="detail-label">Name:</span><span class="detail"
+                                        id="clientName">N/A
+                                    </span></div>
+                                <div class="detail-wrapper"><span class="detail-label">Phone Number:</span><span
+                                        class="detail" id="clientNumber">N/A
+                                    </span></div>
+                                <div class="detail-wrapper"><span class="detail-label">Pickup:</span><span
+                                        class="detail" id="clientPickUp">N/A</span></div>
+                                <div class="detail-wrapper"><span class="detail-label">Dropoff:</span><span
+                                        class="detail" id="clientDropOff">N/A
+                                    </span></div>
+
+                                <div class="detail-wrapper"><span class="detail-label">Price est:</span><span
+                                        class="detail" id="tripPriceEst">N/A
+                                        UGX</span></div>
+                                <div class="detail-wrapper"><span class="detail-label">Date:</span><span class="detail"
+                                        id="tripDate">N/A
+                                    </span></div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Book a ride in advance -->
+
+                <div class="card-container">
+
+
+                    <!-- Bookings Card header -->
+                    <h4 class="trip-red-color card-header">Your advance bookings.</h4>
+
+                    <div class="trip-card ">
+
+                        <div class="client-req-wrapper">
+                            <div class="client-req">
+                                <div class="client-img">
+
+                                    <img class="commuter-profile"
+                                        src="https://images.pexels.com/photos/936074/pexels-photo-936074.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                                        alt="">
+                                </div>
+                                <div class="client-details trip-red-color">
+                                    <div class="detail-wrapper"><span class="detail-label">Name:</span><span
+                                            class="detail">John
+                                        </span></div>
+                                    <div class="detail-wrapper"><span class="detail-label">Pickup:</span><span
+                                            class="detail">Tuskys Ntinda</span></div>
+                                    <div class="detail-wrapper"><span class="detail-label">Dropoff:</span><span
+                                            class="detail">Soliz House
+                                        </span></div>
+                                    <div class="detail-wrapper"><span class="detail-label">Price est:</span><span
+                                            class="detail">10000
+                                            UGX</span></div>
+
+                                </div>
+
+                            </div>
+                            <span class="add-trip-btn">
+                                Cancel Request <i class="fas fa-times-circle"></i>
+                            </span>
+                        </div>
+
+
+
+                    </div>
+
+                    <!-- Text interface -->
+                    <h4 class="trip-red-color card-header">Text interface</h4>
+                    <div class="trip-card text-interface">
+
+
+                        <!-- Text input box and messages -->
+                        <div class="trip-red-background text-box">
+                            <div class="msg-display">
+                                <div class="user-msg"><span class="user-msg-box">Hello</span></div>
+                                <div class="sp-msg"><span class="sp-msg-box">Hello there</span></div>
+                            </div>
+                            <form class="input-msg">
+                                <input id="inputMsg" type="text" placeholder="Write a message..."> <span
+                                    class="send-btn"><i class="fas fa-paper-plane"></i></span>
+                            </form>
+
+                        </div>
+                        <div class="dropdown-container">
+
+                            <span class="dropdown-btns" id="textDropdown"><i class="fas fa-caret-up drop-up-btn"></i><i
+                                    class="fas fa-caret-down drop-down-btn"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <!-- Content at the end / right -->
+        <div class="right-content">
+
+            <!-- Status -->
+
+            <div class="trip-card text-interface ongoing-trip">
+                <h6 class="trip-red-color">Your Availability</h6>
+
+                <div class="trip-red-background available-toggle">
+
+                    <div class="custom-control custom-switch">
+
+                        <input type="checkbox" class="custom-control-input " id="availableToggle" value="true">
+                        <label class="custom-control-label " for="availableToggle"></label>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <!-- Ongoing trip card -->
+            <div class="trip-card ongoing-trip">
+                <h6 class="trip-red-color">Your History</h6>
+                <!-- Driver profile image -->
+                <div class="profile-container">
+
+                    <img class="commuter-profile"
+                        src="https://images.pexels.com/photos/2918519/pexels-photo-2918519.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                        alt="">
+                </div>
+                <!-- Trip details -->
+                <div class="trip-red-background trip-details">
+                    <div class="detail-wrapper"><span class="detail-label">Name:</span><span
+                            class="detail">George</span></div>
+
+
+
+                    <div class="detail-wrapper"><span class="detail-label">Price est:</span><span class="detail">10000
+                            UGX</span></div>
+                    <div class="detail-wrapper"><span class="detail-label">Pickup:</span><span class="detail">Soliz
+                            House</span></div>
+                    <div class="detail-wrapper"><span class="detail-label">Dropoff:</span><span class="detail">Tuskys
+                            Ntinda</span></div>
+                    <div class="detail-wrapper"><span class="detail-label">Phone Number:</span><span class="detail">
+                            0772123456</span></div>
+
+                </div>
+                <div class="dropdown-container">
+
+                    <span class="dropdown-btns" id="ongoingDropdown"><i class="fas fa-caret-up drop-up-btn"></i><i
+                            class="fas fa-caret-down drop-down-btn"></i></span>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <!-- Navbar controller -->
+    <script src="../scripts/module-scripts/nav-bar.js"></script>
+    <script src="../scripts/animations/dashboards.js"></script>
+    <script src="../scripts/data-control/sp-dashboard.js"></script>
+    <script src="../scripts/data-control/navbar.js"></script>
+</body>
+
+</html>

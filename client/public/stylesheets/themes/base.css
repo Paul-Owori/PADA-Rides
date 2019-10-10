@@ -27,22 +27,6 @@
     margin: 1.4rem;
 }
 
-.card-header {
-    padding-left: 1.5rem;
-    background: none;
-    border: none;
-    margin-top: 1.2rem;
-    padding-bottom: 0rem;
-}
-
-.card-sub-header {
-    padding-left: 1.5rem;
-    background: none;
-    border: none;
-    margin-top: 0.5rem;
-    padding-bottom: 0rem;
-}
-
 .trip-red-color {
     color: #dc3545;
 }
@@ -74,7 +58,6 @@
 .trip-bold {
     font-weight: bold
 }
-
 
 /* Trip Logo */
 .trip-logo {
@@ -128,12 +111,6 @@ a:hover,
 a:focus,
 a:active {
     text-decoration: none;
-}
-
-.center-content {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
 }
 
 

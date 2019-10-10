@@ -4,6 +4,22 @@ PADA - Rides is a platform that connects transport service providers to potentia
 
 You can view a hosted version of PADA-Rides on heroku [here](https://pada-rides.herokuapp.com)
 
+## Resources
+
+[Concept Note](https://docs.google.com/document/d/1q5UozcJg6zfhVdnse3rkUDWGCQxAx9G8fuMRDHAQqVQ/edit?usp=sharing)
+
+[Requirements Brief](https://docs.google.com/document/d/1hdpV2NII0n7xDsW1A0aFY1YVDstqEQ3DMaCOp1fuMfk/edit?usp=sharing)
+
+[Design Document](https://docs.google.com/document/d/1g0f1nb2NBDSDsPraeSp4ZxiqMFEV1xT3PrSY5LavTSQ/edit?usp=sharing)
+
+## Dev Team
+
+[Aishah Kiwuka](https://github.com/aishahkiwuka)
+
+[Paul Owori](https://paul-owori.github.io/)
+
+[David Mayanja](https://github.com/DMayanja21)
+
 ## Installation
 
 Clone the repository
